@@ -21,7 +21,7 @@ class Admin{
         $stmt->execute() ;
     }
     public function authenticateUser(){
-        echo "here sign in code" ;
+        echo "hello admin" ;
     }
 } 
 
