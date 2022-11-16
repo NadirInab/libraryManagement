@@ -56,8 +56,12 @@
     }
 ?>
 
+    <aside class="col-3">
+        <?php require "aside.php"  ?>
+    </aside>
 
-     <div class="container w-50">
+    <section class="col-8">
+    <div class="container w-50">
         <h2>Admin</h2>
         <?php if($userExist) : ?>
         <div class="alert alert-danger">
@@ -134,7 +138,12 @@
 
             <button name="signIn" type="submit" class="btn btn-primary mt-2">Submit</button>
         </form>
-    </div> 
+    </div>
+    </section> 
+    
+
+
+    
     <?php include "templates/footer.php" ?>
 
 
