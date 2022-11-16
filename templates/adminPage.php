@@ -1,7 +1,5 @@
 <?php
     require "navbar.php" ;
-   // isConnected() ;
-   //session_start() ;
 ?>
     <div class="container bg-dark text-secondary">
         <h3><?= "Welcome ".$_SESSION["admin"] ;  ?>  </h3>
@@ -11,6 +9,7 @@
         <p></p>
         <h1> <?= $_SESSION["id"] ?></h1>
     </div>
+
 <?php
     require "footer.php" ;
 ?>

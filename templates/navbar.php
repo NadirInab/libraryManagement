@@ -1,7 +1,6 @@
 <?php
   require "header.php" ;
-  session_start() ;
-  //require "../includes/function.php" ; 
+  session_start() ; 
  ?>
 <nav class="navbar navbar-expand-lg bg-secondary">
   <?php if(isset($_SESSION["admin"])) :  ?>

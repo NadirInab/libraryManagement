@@ -1,5 +1,6 @@
 <?php 
-    define("SCRIPT_ROOT", "http://localhost/libraryManagement/") ;
+   // define("SCRIPT_ROOT", "http://localhost/libraryManagement/") ;
+   //include "../includes/autoloader.php" ;
 ?>
 <!DOCTYPE html>
 <html lang="en">
