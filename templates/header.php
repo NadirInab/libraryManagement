@@ -1,3 +1,6 @@
+<?php 
+    define("SCRIPT_ROOT", "http://localhost/libraryManagement/") ;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
