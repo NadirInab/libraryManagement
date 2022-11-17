@@ -1,23 +1,59 @@
+<?php 
+    // require "../index.php"  ;
+    // include "../includes/autoloader.php" ;
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/bootstrap.min.css">
-    <link rel="stylesheet" href="../style/style.css">
-    <title>YouCode Library</title>
-</head>
-<body class="row">
-    <!-- <div class="container bg-dark text-secondary">
-        <h3><?= "Welcome ".$_SESSION["admin"] ;  ?>  </h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia, cupiditate!</p>
-        <img style="width: 100px ; height= 100px ;border-radius: 50%;" src="../images/<?= $_SESSION["profile"] ?>" alt="" > <br>
-        <strong> <?= $_SESSION["phone"] ?></strong>
-        <p></p>
-        <h1> <?= $_SESSION["id"] ?></h1>
-    </div> -->
+?>
+<aside class="col-">
+        <?php require "aside.php"  ?>
+    </aside>
+
+    <main class="col- col-sm-3 col-md-6 col-lg-9 pt-5">
+        <div class="row d-flex justify-content-around">
+            <div class="col-3 mx-1 card" style="width: 18rem;">
+                 <img src="images/pain_nu.jpg" class="card-img-top pt-2 " style="height: 15rem ;" alt="...">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> <strong>Isbn &nbsp;&nbsp;&nbsp; :</strong> </li>
+                        <li class="list-group-item"> <strong>Title &nbsp;&nbsp;&nbsp;:</strong> </li>
+                        <li class="list-group-item"> <strong>Type &nbsp;&nbsp;&nbsp;:</strong> </li>
+                        <li class="list-group-item"> <strong> Publish-Date : </strong> </li>
+                        <li class="list-group-item"> <strong> Added-at &nbsp;&nbsp;:  </strong> </li>
+                    </ul>
+                </div>
+            <div class="card-body">
+                <button class="btn btn-primary">update</button>
+                <button class="btn btn-danger">delete</button>
+            </div>
+
+            </div>
+
+            <div class="col-3 mx-1 card" style="width: 18rem;">
+                 <img src="images/bread.jpg" class="card-img-top" style="height: 15rem ;" alt="...">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> <strong>Isbn &nbsp;&nbsp;&nbsp; :</strong> </li>
+                        <li class="list-group-item"> <strong>Title &nbsp;&nbsp;&nbsp;:</strong> </li>
+                        <li class="list-group-item"> <strong>Type &nbsp;&nbsp;&nbsp;:</strong> </li>
+                        <li class="list-group-item"> <strong> Publish-Date : </strong> </li>
+                        <li class="list-group-item"> <strong> Added-at &nbsp;&nbsp;:  </strong> </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-3 card" style="width: 18rem;">
+                 <img src="images/pain_nu.jpg" class="card-img-top" style="height: 15rem ;" alt="...">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> <strong>Isbn &nbsp;&nbsp;&nbsp; :</strong> </li>
+                        <li class="list-group-item"> <strong>Title &nbsp;&nbsp;&nbsp;:</strong> </li>
+                        <li class="list-group-item"> <strong>Type &nbsp;&nbsp;&nbsp;:</strong> </li>
+                        <li class="list-group-item"> <strong> Publish-Date : </strong> </li>
+                        <li class="list-group-item"> <strong> Added-at &nbsp;&nbsp;:  </strong> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
     
 
 <?php

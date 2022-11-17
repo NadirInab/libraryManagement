@@ -15,8 +15,8 @@ class Admin{
         $this->phone = $phone ;
         $this->pwd = $pwd ;
     } 
-    public static function addBook($title, $type, $image, $publish_date,$connection){
-        $Book1 = new Book($title, $type, $image, $publish_date) ;
+    public static function addBook($title, $type, $image, $publish_date, $admin_id,$connection){
+        $Book1 = new Book($title, $type, $image, $publish_date, $admin_id) ;
         $query = "INSERT INTO books(isbn,title,type) VALUES(:isbn, :title, :bookType)" ;
         $stmt = $connection->prepare($query) ;
         $stmt->bindParam(':isbn', $Book1->isbn) ;

@@ -31,7 +31,7 @@
 
     if(isset($_POST["addBook"])){
         $bookData = ["title" => $_POST["title"], "type" => $_POST["type"], "image" => $_POST["image"], "publish_date" =>$_POST["publish_date"]] ;
-        $book1 = Admin::addBook($bookData["title"], $bookData["type"],$bookData["image"], $bookData["publish_date"],$connect) ;
+        $book1 = Admin::addBook($bookData["title"], $bookData["type"],$bookData["image"], $bookData["publish_date"], $_SESSION["Admin_id"] ,$connect) ;
     }
     
     if(isset($_POST["signIn"])){
@@ -48,7 +48,7 @@
             $_SESSION["admin"] = $result["fullName"] ;
             $_SESSION["profile"] = $result["image"] ;
             $_SESSION["phone"] = $result["phone"] ;
-            $_SESSION["id"] = $result["id"] ;
+            $_SESSION["admin_id"] = $result["admin_id"] ;
             header("location:/libraryManagement/templates/adminPage.php") ;
         }else{
             echo "<h3> user not registered</h3>" ;
@@ -56,19 +56,21 @@
     }
 ?>
 
-    <aside class="col-3">
+    <aside class="col- col-sm-1 col-md-2 col-lg-3 ">
         <?php require "aside.php"  ?>
     </aside>
 
-    <main class="col-9 pt-5">
-        <div class="row">
+    <main class="col- col-sm-3 col-md-6 col-lg-9 pt-5">
+        <div class="row d-flex justify-content-around">
             <div class="col-3 mx-1 card" style="width: 18rem;">
                  <img src="images/pain_nu.jpg" class="card-img-top pt-2 " style="height: 15rem ;" alt="...">
                 <div class="card-body">
-                    <ul class="list-group list-group-flush  pt-3">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> <strong>Isbn &nbsp;&nbsp;&nbsp; :</strong> </li>
+                        <li class="list-group-item"> <strong>Title &nbsp;&nbsp;&nbsp;:</strong> </li>
+                        <li class="list-group-item"> <strong>Type &nbsp;&nbsp;&nbsp;:</strong> </li>
+                        <li class="list-group-item"> <strong> Publish-Date : </strong> </li>
+                        <li class="list-group-item"> <strong> Added-at &nbsp;&nbsp;:  </strong> </li>
                     </ul>
                 </div>
             <div class="card-body">
@@ -81,22 +83,26 @@
             <div class="col-3 mx-1 card" style="width: 18rem;">
                  <img src="images/bread.jpg" class="card-img-top" style="height: 15rem ;" alt="...">
                 <div class="card-body">
-                    <ul class="list-group list-group-flush  pt-3">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                    </ul> 
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> <strong>Isbn &nbsp;&nbsp;&nbsp; :</strong> </li>
+                        <li class="list-group-item"> <strong>Title &nbsp;&nbsp;&nbsp;:</strong> </li>
+                        <li class="list-group-item"> <strong>Type &nbsp;&nbsp;&nbsp;:</strong> </li>
+                        <li class="list-group-item"> <strong> Publish-Date : </strong> </li>
+                        <li class="list-group-item"> <strong> Added-at &nbsp;&nbsp;:  </strong> </li>
+                    </ul>
                 </div>
             </div>
 
             <div class="col-3 card" style="width: 18rem;">
                  <img src="images/pain_nu.jpg" class="card-img-top" style="height: 15rem ;" alt="...">
                 <div class="card-body">
-                    <ul class="list-group list-group-flush pt-3">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                    </ul> 
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> <strong>Isbn &nbsp;&nbsp;&nbsp; :</strong> </li>
+                        <li class="list-group-item"> <strong>Title &nbsp;&nbsp;&nbsp;:</strong> </li>
+                        <li class="list-group-item"> <strong>Type &nbsp;&nbsp;&nbsp;:</strong> </li>
+                        <li class="list-group-item"> <strong> Publish-Date : </strong> </li>
+                        <li class="list-group-item"> <strong> Added-at &nbsp;&nbsp;:  </strong> </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -164,14 +170,18 @@
         </form>
     </div> 
 
+
      <hr>
      <div class="container w-50">
-        <?php if(!isConnected()) : ?>
         <h2>add Book</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Title</label>
                 <input name="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Publish Date</label>
+                <input name="date" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <select name="type" class="form-select" aria-label="Default select example">
                 <option selected>Book type</option>
@@ -179,11 +189,14 @@
                 <option value="Cartoon">Cartoon</option>
                 <option value="IT">IT</option>
             </select>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Book Image</label>
+                <input name="bookImage" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
             <button name="addBook" type="submit" class="btn btn-primary mt-2">Submit</button>
         </form>
     </div> 
     <hr> 
-        <?php endif ; ?>
 
 
 

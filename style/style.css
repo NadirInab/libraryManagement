@@ -6,49 +6,51 @@ body{
 }
 #aside{
     background-color: lightgray;
-    height: 100%;
-/* border: 2px solid tomato; */
-    transition: left 0.4s ease;
-}
+    height: 100% ;
+} 
 
-#aside li.active{
+/* #aside li.active{
     background-color: aqua;
-}
+} */
 
 #aside li a:hover{
     color:rgb(86, 86, 31) ;
 }
-
-
-/* @media(max-width : 700px){
-    #aside{
-        margin-left: -250px ;
-        position: fixed;
-        min-height: 100vh;
-        z-index: 1;
-    }
-} */
+.list-group-item a{
+    color:darkslategray;
+}
+.list-group-item:active ,
+.list-group-item:focus ,
+.list-group-item:hover {
+    background-color: lightgray;
+}
 .card:hover{
     box-shadow:
     0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048),
     0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 22.3px 17.9px rgba(8, 7, 7, 0.072),
     0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12)
   ;
 }
-.card  img {
-    /* width: 100%; */
+
+.card{
+    transition: transform 1s;
+}
+.card:hover{
+    transform: translateY(15px) scale(1.005) translateZ(0);
+}
+
+.card img {
     opacity: .8;
     transition: .5s;
-    /* transition: opacity 0.15s ease-in; */
 }
 .card:hover  img  {
     transition: all .2s ease-in-out;
-    transition-delay: .3s;
+    transition-delay: .5s;
     opacity: 1.5;
-    transform: translateY(10%);
+    transform: translateY(4%);
 }
 .card-body ul li:hover{
     border-radius: 10px;
