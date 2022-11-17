@@ -60,6 +60,70 @@
         <?php require "aside.php"  ?>
     </aside>
 
+    <main class="col-9 pt-5">
+        <div class="row">
+            <div class="col-3 mx-1 card" style="width: 18rem;">
+                 <img src="images/pain_nu.jpg" class="card-img-top pt-2 " style="height: 15rem ;" alt="...">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush  pt-3">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                    </ul>
+                </div>
+            <div class="card-body">
+                <button class="btn btn-primary">update</button>
+                <button class="btn btn-danger">delete</button>
+            </div>
+
+            </div>
+
+            <div class="col-3 mx-1 card" style="width: 18rem;">
+                 <img src="images/bread.jpg" class="card-img-top" style="height: 15rem ;" alt="...">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush  pt-3">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                    </ul> 
+                </div>
+            </div>
+
+            <div class="col-3 card" style="width: 18rem;">
+                 <img src="images/pain_nu.jpg" class="card-img-top" style="height: 15rem ;" alt="...">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush pt-3">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- =========================================================== -->
+    <!-- <div class="col-8 pt-4">
+        <div class="card p-3" >
+        <div class="row g-0">
+            <div class="col-md-6 border border-2 ">
+                <img src="images/user.png" class="img-fluid rounded-start d-block m-auto" alt="...">
+            </div>
+        <div class="col-md-6">
+            <div class="card-body border border-muted h-100">
+                <h5 class="card-title p-2">Name  : </h5>
+                <h5 class="card-title p-2">Email :</h5>
+                <h5 class="card-title p-2">Phone :</h5>
+                <h5 class="card-title p-2">data  :</h5>
+            </div>
+        </div>
+        </div>
+        </div>
+    </div> -->
+
+    <!-- =============================================================== -->
+
     <section class="col-8">
     <div class="container w-50">
         <h2>Admin</h2>

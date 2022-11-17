@@ -1,7 +1,5 @@
  
     <div id="aside" class="container text-light">
-        <button id="close" class="btn btn-primary">close</button>
-        <button class="btn btn-danger">close</button>
         <div class="text-center pt-2">
             <img class="rounded-circle w-50 h-50" src="images/user.png" alt="">
             <h4>Welcome User</h4>
@@ -15,5 +13,6 @@
         </ul>
         
     </div>
+    
  
     
