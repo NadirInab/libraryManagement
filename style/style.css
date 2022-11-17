@@ -12,7 +12,11 @@ body{
 /* #aside li.active{
     background-color: aqua;
 } */
-
+#logo{
+    width: 50px ;
+    height: 50px;
+    border-radius: 50%;
+}
 #aside li a:hover{
     color:rgb(86, 86, 31) ;
 }
