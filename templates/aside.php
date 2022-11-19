@@ -1,7 +1,7 @@
  
     <div id="aside" class="container text-light">
         <div class="text-center pt-2">
-            <img class="rounded-circle w-50 h-50" src="images/user.png" alt="">
+            <img class="rounded-circle w-50 h-50" src="../images/user.png" alt="">
             <h4>Welcome User</h4>
         </div>
         <ul class="list-group w-75">

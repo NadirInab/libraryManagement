@@ -3,7 +3,7 @@
 class DbConnection {
     private $host = "localhost" ;
     private $user = "root" ;
-    private $pwd = "rainoverme" ;
+    private $pwd = "" ;
     private $dbName = "youcodelibrary" ;
 
     public function connect(){

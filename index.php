@@ -1,5 +1,5 @@
 <?php 
-    include "templates/navbar.php" ;
+    // include "templates/navbar.php" ;
     include "includes/autoloader.php" ;
     include "includes/function.php" ;
 
@@ -29,11 +29,10 @@
         //AdminFactory::createAdmin($connect, $data) ;
     }
 
-    if(isset($_POST["addBook"])){
-        $bookData = ["title" => $_POST["title"], "type" => $_POST["type"], "image" => $_POST["image"], "publish_date" =>$_POST["publish_date"]] ;
-        $book1 = Admin::addBook($bookData["title"], $bookData["type"],$bookData["image"], $bookData["publish_date"], $_SESSION["Admin_id"] ,$connect) ;
-    }
+
+  
     
+
     if(isset($_POST["signIn"])){
         $userData = ["email"=> $_POST["email"], "pwd" => $_POST["pwd"]] ;
         $query = "SELECT * FROM admin WHERE email = :email AND pwd = :pwd" ;
@@ -49,65 +48,36 @@
             $_SESSION["profile"] = $result["image"] ;
             $_SESSION["phone"] = $result["phone"] ;
             $_SESSION["admin_id"] = $result["admin_id"] ;
-            header("location:/libraryManagement/templates/adminPage.php") ;
+            header("location:http://localhost/schoolLibrary/libraryManagement/templates/adminPage.php") ;
         }else{
             echo "<h3> user not registered</h3>" ;
         }
     }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <title>YouCode Library</title>
+</head>
+<body class="row">
+<nav class="navbar navbar-expand-lg bg-dark bg-muted">
+    <div class="container">
+      <div>
+      <img id="logo" src="images/YouCode.png" alt=""> 
+        <span class="navbar-brand fw-bold" href="#">Library Managemkent</span>
+      </div>
+      <button class="btn btn-primary float-right">
+        Sign out
+      </button>
+  </div>
+</nav>
 
-    <aside class="col- col-sm-1 col-md-2 col-lg-3 ">
-        <?php require "aside.php"  ?>
-    </aside>
-
-    <main class="col- col-sm-3 col-md-6 col-lg-9 pt-5">
-        <div class="row d-flex justify-content-around">
-            <div class="col-3 mx-1 card" style="width: 18rem;">
-                 <img src="images/pain_nu.jpg" class="card-img-top pt-2 " style="height: 15rem ;" alt="...">
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"> <strong>Isbn &nbsp;&nbsp;&nbsp; :</strong> </li>
-                        <li class="list-group-item"> <strong>Title &nbsp;&nbsp;&nbsp;:</strong> </li>
-                        <li class="list-group-item"> <strong>Type &nbsp;&nbsp;&nbsp;:</strong> </li>
-                        <li class="list-group-item"> <strong> Publish-Date : </strong> </li>
-                        <li class="list-group-item"> <strong> Added-at &nbsp;&nbsp;:  </strong> </li>
-                    </ul>
-                </div>
-            <div class="card-body">
-                <button class="btn btn-primary">update</button>
-                <button class="btn btn-danger">delete</button>
-            </div>
-
-            </div>
-
-            <div class="col-3 mx-1 card" style="width: 18rem;">
-                 <img src="images/bread.jpg" class="card-img-top" style="height: 15rem ;" alt="...">
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"> <strong>Isbn &nbsp;&nbsp;&nbsp; :</strong> </li>
-                        <li class="list-group-item"> <strong>Title &nbsp;&nbsp;&nbsp;:</strong> </li>
-                        <li class="list-group-item"> <strong>Type &nbsp;&nbsp;&nbsp;:</strong> </li>
-                        <li class="list-group-item"> <strong> Publish-Date : </strong> </li>
-                        <li class="list-group-item"> <strong> Added-at &nbsp;&nbsp;:  </strong> </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-3 card" style="width: 18rem;">
-                 <img src="images/pain_nu.jpg" class="card-img-top" style="height: 15rem ;" alt="...">
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"> <strong>Isbn &nbsp;&nbsp;&nbsp; :</strong> </li>
-                        <li class="list-group-item"> <strong>Title &nbsp;&nbsp;&nbsp;:</strong> </li>
-                        <li class="list-group-item"> <strong>Type &nbsp;&nbsp;&nbsp;:</strong> </li>
-                        <li class="list-group-item"> <strong> Publish-Date : </strong> </li>
-                        <li class="list-group-item"> <strong> Added-at &nbsp;&nbsp;:  </strong> </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </main>
-
+   
 
     <!-- =========================================================== -->
     <!-- <div class="col-8 pt-4">
@@ -217,9 +187,6 @@
         </form>
     </div>
     </section> 
-    
-
-
     
     <?php include "templates/footer.php" ?>
 
