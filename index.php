@@ -47,6 +47,7 @@
             $_SESSION["admin"] = $result["fullName"] ;
             $_SESSION["profile"] = $result["image"] ;
             $_SESSION["phone"] = $result["phone"] ;
+            $_SESSION["email"] = $result["email"] ;
             $_SESSION["admin_id"] = $result["admin_id"] ;
             header("location:http://localhost/schoolLibrary/libraryManagement/templates/adminPage.php") ;
         }else{

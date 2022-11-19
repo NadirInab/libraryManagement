@@ -32,7 +32,7 @@
     // =============================
 
 ?>
-    <aside class="col-md-2 col-lg-2">
+    <aside class="col-sm-1 col-md-2 col-lg-2">
         <div id="aside" class="container text-light">
             <div class="text-center pt-2">
                 <img class="rounded-circle w-50 h-50" src="../images/<?=  $_SESSION["profile"] ?>" alt="">
@@ -50,6 +50,22 @@
     
     </aside>
 
+        <div class="col-7 mx-5 pt-4">
+        <div class="card p-3" >
+        <div class="row g-0">
+            <div class="col-md-6 border border-2 ">
+                <img src="../images/<?= $_SESSION["profile"]   ?>" class="img-fluid rounded-start d-block m-auto" alt="...">
+            </div>
+        <div class="col-md-6">
+            <div class="card-body border border-muted h-100">
+                <h5 class="card-title p-2">Name  :<?= $_SESSION["admin"]   ?> </h5>
+                <h5 class="card-title p-2">Email :<?= $_SESSION["email"]   ?></h5>
+                <h5 class="card-title p-2">Phone :<?= $_SESSION["phone"]   ?></h5>
+            </div>
+        </div>
+        </div>
+        </div>
+    </div>
     <main class="col- col-sm-3 col-md-6 col-lg-9 pt-5">
         <div class="row d-flex justify-content-around">
         <?php foreach($booksData as $book) : ?>
@@ -71,9 +87,9 @@
 
             </div>
             <?php endforeach ;  ?>
-            </div>
-            
+            </div>  
     </main>
+
     
     <div class="container w-50">
         <h2>add Book</h2>
@@ -98,7 +114,26 @@
             </div>
             <button name="addBook" type="submit" class="btn btn-primary mt-2">  Submit</button>
         </form>
-    </div> 
+    </div>  -->
+
+
+    <!-- <hr>
+        <div class="col-8 pt-4">
+        <div class="card p-3" >
+        <div class="row g-0">
+            <div class="col-md-6 border border-2 ">
+                <img src="../images/<?= $_SESSION["profile"]   ?>" class="img-fluid rounded-start d-block m-auto" alt="...">
+            </div>
+        <div class="col-md-6">
+            <div class="card-body border border-muted h-100">
+                <h5 class="card-title p-2">Name  :<?= $_SESSION["admin"]   ?> </h5>
+                <h5 class="card-title p-2">Email :<?= $_SESSION["email"]   ?></h5>
+                <h5 class="card-title p-2">Phone :<?= $_SESSION["phone"]   ?></h5>
+            </div>
+        </div>
+        </div>
+        </div>
+    </div>
 <?php
     require "footer.php" ;
 ?>
