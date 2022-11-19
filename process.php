@@ -1,35 +1,21 @@
 <?php 
-    // require "classes/Admin.php" ;
-    // require "classes/Dbconnection.php" ;
-    // require "classes/Book.php" ;
     session_start() ;
-    include "includes/autoloader.php" ;
+   include "includes/autoloader.php" ;
     $connection = new DbConnection ;
     $connect = $connection->connect() ;
 
     $book_id = $_GET["id"] ;
-    $admin_id = $_SESSION["admin_id"] ; 
-    //======== FTCHING BOOKS
-   $bookQuery = "SELECT * FROM book WHERE isbn = :isbn" ;
+    $bookQuery = "SELECT * FROM book WHERE isbn = :isbn" ;
     $stmt = $connect->prepare($bookQuery) ;
     $stmt->bindParam(':isbn' , $book_id) ;
     $stmt->execute() ;
     $bookData = $stmt->fetch(PDO::FETCH_ASSOC) ;
-    // var_dump($bookData) ;
+
     if(isset($_POST["upDateBook"])){
         $bookData = ["title" => $_POST["title"], "type" => $_POST["type"], "image" => $_POST["bookImage"], "publish_date" => $_POST["publish_date"],"isbn" =>$book_id ] ;
-        Admin::upDateBook($bookData,$connect) ;
+        AdminCrud::upDateBook($bookData,$connect) ;
         //header("location:http://localhost/schoolLibrary/libraryManagement/templates/adminPage.php") ;
     }
-
-
-    // if($_GET['action'] === 'delete'){
-    //     echo "delete is here" ;
-    //     Admin::deleteBook($_GET["id"],$connect) ;
-    //    // header("Refresh:0");
-    // }
-
-    // =============================
 
 ?>
     <!DOCTYPE html>
@@ -88,6 +74,8 @@
                 <option <?= ($bookData["type"] == "SC")? "selected" : "" ?> value="SC">SC</option>
                 <option <?= ($bookData["type"] == "Cartoon")? "selected" : "" ?> value="Cartoon">Cartoon</option>
                 <option  <?= ($bookData["type"] == "IT")? "selected" : "" ?> value="IT">IT</option>
+                <option  <?= ($bookData["type"] == "ST")? "selected" : "" ?> value="ST">Short Stories</option>
+                <option  <?= ($bookData["type"] == "Mystery")? "selected" : "" ?> value="Mystery">Mystery</option>
             </select>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Book Image</label>

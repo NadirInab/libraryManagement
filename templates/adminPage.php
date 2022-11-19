@@ -1,35 +1,18 @@
 <?php 
     require "navbar.php"  ;
-    //include "../includes/autoloader.php" ;
+    include "../services/adminService.php" ;
     include "../includes/function.php" ;
-    require "../classes/Admin.php" ;
-    require "../classes/Dbconnection.php" ;
-    require "../classes/Book.php" ;
-    $connection = new DbConnection ;
-    $connect = $connection->connect() ;
 
-    $admin_id = $_SESSION["admin_id"] ; 
-    //======== FTCHING BOOKS
-    $bookQuery = "SELECT * FROM book WHERE admin_id = :admin_id" ;
-    $stmt = $connect->prepare($bookQuery) ;
-    $stmt->bindParam(':admin_id' , $admin_id) ;
-    $stmt->execute() ;
-    $booksData = $stmt->fetchAll(PDO::FETCH_ASSOC) ;
+    $booksData = fetchingBooks() ;
 
-    // +++++
-    // adding book //
-    if(isset($_POST["addBook"])){
-        $bookData = ["title" => $_POST["title"], "type" => $_POST["type"], "image" => $_POST["bookImage"], "publish_date" => $_POST["publish_date"]] ;
-        $book1 = Admin::addBook($bookData["title"], $bookData["type"],$bookData["image"], $bookData["publish_date"], $_SESSION["admin_id"],$connect) ;
+    if(isset($_GET["action"])&& $_GET['action'] === 'delete'){
+        deleteBook() ;
+        sleep(1) ;
+        header("location:" .$_SERVER['PHP_SELF'] ) ;
     }
-
-    // if($_GET['action'] === 'delete'){
-    //     echo "delete is here" ;
-    //     Admin::deleteBook($_GET["id"],$connect) ;
-    //    // header("Refresh:0");
-    // }
-
-    // =============================
+    if(isset($_POST["addBook"])){
+        addBook() ;
+    }
 
 ?>
     <aside class="col-sm-1 col-md-2 col-lg-2">
@@ -48,24 +31,7 @@
             
         </div>
     
-    </aside>
-
-        <div class="col-7 mx-5 pt-4">
-        <div class="card p-3" >
-        <div class="row g-0">
-            <div class="col-md-6 border border-2 ">
-                <img src="../images/<?= $_SESSION["profile"]   ?>" class="img-fluid rounded-start d-block m-auto" alt="...">
-            </div>
-        <div class="col-md-6">
-            <div class="card-body border border-muted h-100">
-                <h5 class="card-title p-2">Name  :<?= $_SESSION["admin"]   ?> </h5>
-                <h5 class="card-title p-2">Email :<?= $_SESSION["email"]   ?></h5>
-                <h5 class="card-title p-2">Phone :<?= $_SESSION["phone"]   ?></h5>
-            </div>
-        </div>
-        </div>
-        </div>
-    </div>
+    </aside> 
     <main class="col- col-sm-3 col-md-6 col-lg-9 pt-5">
         <div class="row d-flex justify-content-around">
         <?php foreach($booksData as $book) : ?>
@@ -84,14 +50,13 @@
                     <button class="btn btn-primary"><a href="../process.php?id=<?=$book["isbn"]?>">update </a>  </button>
                     <button name="delete" value="delete" class="btn btn-danger"><a href="adminPage.php?id=<?=$book["isbn"]?>&action=delete">delete </a>  </button>
                 </div>
-
             </div>
             <?php endforeach ;  ?>
             </div>  
     </main>
 
     
-    <div class="container w-50">
+    <div class="container w-50 pb-5">
         <h2>add Book</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
             <div class="mb-3">
@@ -104,9 +69,10 @@
             </div>
             <select name="type" class="form-select" aria-label="Default select example">
                 <option selected>Book type</option>
-                <option value="SC">SC</option>
-                <option value="Cartoon">Cartoon</option>
+                <option value="SC">Science fitction</option>
+                <option value="Mystery">Mystery</option>
                 <option value="IT">IT</option>
+                <option value="ST">Biographie</option>
             </select>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Book Image</label>
@@ -114,26 +80,9 @@
             </div>
             <button name="addBook" type="submit" class="btn btn-primary mt-2">  Submit</button>
         </form>
-    </div>  -->
-
-
-    <!-- <hr>
-        <div class="col-8 pt-4">
-        <div class="card p-3" >
-        <div class="row g-0">
-            <div class="col-md-6 border border-2 ">
-                <img src="../images/<?= $_SESSION["profile"]   ?>" class="img-fluid rounded-start d-block m-auto" alt="...">
-            </div>
-        <div class="col-md-6">
-            <div class="card-body border border-muted h-100">
-                <h5 class="card-title p-2">Name  :<?= $_SESSION["admin"]   ?> </h5>
-                <h5 class="card-title p-2">Email :<?= $_SESSION["email"]   ?></h5>
-                <h5 class="card-title p-2">Phone :<?= $_SESSION["phone"]   ?></h5>
-            </div>
-        </div>
-        </div>
-        </div>
-    </div>
+    </div>  
 <?php
     require "footer.php" ;
 ?>
+
+<!-- just display -->

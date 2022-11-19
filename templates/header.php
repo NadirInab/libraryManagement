@@ -13,13 +13,13 @@
     <title>YouCode Library</title>
 </head>
 <body class="row">
-<nav class="navbar navbar-expand-lg bg-dark bg-muted">
-    <div class="container">
+<nav class="navbar navbar-expand-lg bg-muted bg-muted">
+    <div class="container-xxl">
       <div>
       <img id="logo" src="../images/YouCode.png" alt=""> 
-        <span class="navbar-brand fw-bold" href="#">Library Management</span>
+        <span class="navbar-brand fw-bold " href="#">Library Management</span>
       </div>
-      <button class="btn btn-primary float-right">
+      <button class="btn btn-primary float-right mx-5">
         Sign out
       </button>
   </div>
