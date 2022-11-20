@@ -4,6 +4,7 @@
     $connection = new DbConnection ;
     $connect = $connection->connect() ;
 
+
     $book_id = $_GET["id"] ;
     $bookQuery = "SELECT * FROM book WHERE isbn = :isbn" ;
     $stmt = $connect->prepare($bookQuery) ;
@@ -40,26 +41,10 @@
       </button>
   </div>
 </nav>
-    <aside class="col-md-2 col-lg-2">
-        <div id="aside" class="container text-light">
-            <div class="text-center pt-2">
-                <img class="rounded-circle w-50 h-50" src="images/<?=  $_SESSION["profile"] ?>" alt="">
-                <h4>Welcome <?= $_SESSION["admin"] ?></h4>
-            </div>
-            <ul class="list-group w-75">
-                <li class="list-group-item"> <a class="text-decoration-none fw-bold" href="#"> Profile </a> </li>
-                <li class="list-group-item"> <a class="text-decoration-none fw-bold"  href="#"> Dashboard </a> </li>
-                <li class="list-group-item"> <a class="text-decoration-none fw-bold"  href="#"> Books </a> </li>
-                <li class="list-group-item"> <a class="text-decoration-none fw-bold"  href="#"> Users </a> </li>
-                <li class="list-group-item"> <a class="text-decoration-none fw-bold"  href="#"> statistics </a> </li>
-            </ul>
-            
-        </div>
+
     
-    </aside>
-    
-    <div class="container w-50">
-        <h2>add Book</h2>
+    <div class="container w-50 p-3 mt-5">
+        <h2>upDate  Book</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Title</label>

@@ -1,6 +1,6 @@
 <?php
     // include "../includes/autoloader.php" ;
-    include "../includes/autoloader.php" ;
+    include  "../includes/autoloader.php" ;
     $connection = new DbConnection ;
     $connect = $connection->connect() ;
 
@@ -40,7 +40,7 @@
             $_SESSION["phone"] = $result["phone"] ;
             $_SESSION["email"] = $result["email"] ;
             $_SESSION["admin_id"] = $result["admin_id"] ;
-            header("location:http://localhost/schoolLibrary/libraryManagement/templates/adminPage.php") ;
+            header("location: http://localhost/schoolLibrary/libraryManagement/templates/adminPage.php") ;
         }else{
             return  "<h3> user not registered</h3>" ;
         }
@@ -61,6 +61,8 @@
         $stmt->bindParam(':admin_id' , $admin_id) ;
         $stmt->execute() ;
         $booksData = $stmt->fetchAll(PDO::FETCH_ASSOC) ;
+        // $rows = $stmt->rowCount() ;
+        
         return $booksData ;
     }
 
@@ -69,17 +71,24 @@
         AdminCrud::deleteBook($_GET["id"],$connect) ;
     }
 
-    // function updateBook($bookId){
-    //     global $connect ;
-    //     //$book_id = $_GET["id"] ;
-    // //    $bookQuery = "SELECT * FROM book WHERE isbn = :isbn" ;
-    // //     $stmt = $connect->prepare($bookQuery) ;
-    // //     $stmt->bindParam(':isbn' , $book_id) ;
-    // //     $stmt->execute() ;
-    // //     $bookData = $stmt->fetch(PDO::FETCH_ASSOC) ;
-       
-    //     $bookData = ["title" => $_POST["title"], "type" => $_POST["type"], "image" => $_POST["bookImage"], "publish_date" => $_POST["publish_date"],"isbn" =>$bookId ] ;
-    //     AdminCrud::upDateBook($bookData,$connect) ;
-    //     //header("location:http://localhost/schoolLibrary/libraryManagement/templates/adminPage.php") ;
+    function signOut(){
+        session_destroy();
+        header("location: http://localhost/schoolLibrary/libraryManagement/index.php") ;
+        
+    }
 
-    // }
+    function usersCounter(){
+        global $connect ;
+        $query = "SELECT * FROM admin" ;
+        $stmt = $connect->query($query) ;
+        $rowCount = $stmt->rowCount() ;
+        return $rowCount ;
+    }
+    function BooksCounter(){
+        global $connect ;
+        $query = "SELECT * FROM book" ;
+        $stmt = $connect->query($query) ;
+        $rowCount = $stmt->rowCount() ;
+        return $rowCount ;
+    }
+

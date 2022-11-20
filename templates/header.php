@@ -1,7 +1,5 @@
 <?php 
-   // define("SCRIPT_ROOT", "http://localhost/libraryManagement/") ;
-   //include "../includes/autoloader.php" ;
-   //session_start() ;
+   require "../includes/function.php" ;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,21 +12,11 @@
     <title>YouCode Library</title>
 </head>
 <body class="row">
-
-<nav class="navbar navbar-expand-lg bg-muted bg-muted">
-<?php if(isset($_SESSION["admin"])) :   ?>
+<nav class="navbar navbar-expand-lg">
     <div class="container-xxl">
       <div>
       <img id="logo" src="../images/YouCode.png" alt=""> 
         <span class="navbar-brand fw-bold " href="#">Library Management</span>
       </div>
-      <button class="btn btn-primary float-right mx-5">
-        Sign out
-      </button>
   </div>
-  <? else :  ?>
-    <!-- <button class="btn btn-primary float-right mx-5">
-        Sign out
-      </button> -->
-  <?php endif ;  ?>
 </nav>

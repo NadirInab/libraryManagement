@@ -27,39 +27,21 @@
     <title>YouCode Library</title>
 </head>
 <body class="row">
-<nav class="navbar navbar-expand-lg bg-dark bg-muted">
-    <div class="container-fluid">
-      <div class="mx-5">
-      <img id="logo" src="images/theLogo.png" alt=""> 
-        <span class="navbar-brand fw-bold text-white " href="#">Library Management</span>
-      </div>
-      <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
-      <button id="singUp12" class="btn btn-primary float-right ml-5">
-        Sign Up 
-        <!-- Is session out  else Up -->
-      </button>
-  </div>
-</nav>
-
-<!-- <div id="aside" class="container text-light">
-        <div id="aside" class="container text-light">
-            <div class="text-center pt-2">
-                <img class="rounded-circle w-50 h-50" alt="">
-                <h4>Welcome</h4>
-            </div>
-            <ul class="list-group w-75">
-                <li class="list"> <a class="" href="#"> Profile </a> </li>
-                <li class="list"> <a class=""  href="#"> Dashboard </a> </li>
-                <li class="list"> <a class=""  href="#"> Books </a> </li>
-                <li class="list"> <a class=""  href="#"> Users </a> </li>
-                <li class="list"> <a class=""  href="#"> statistics </a> </li>
-            </ul>
-            
+    <?php if(isConnected()) : ?>
+    <nav class="navbar navbar-expand-lg bg-dark bg-muted">
+        <div class="container-fluid">
+        <div class="mx-5">
+        <img id="logo" src="images/theLogo.png" alt=""> 
+            <span class="navbar-brand fw-bold text-white " href="#">Library Management</span>
         </div>
-        
-    </div> -->
-    <hr>
-    <hr>
+        <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+        <button  class="btn btn-primary float-right ml-5">
+            Sign Up 
+        </button>
+    </div>
+    </nav>
+    <?php endif ; ?>
+
     <?= ($notRegistered) ? $notRegistered : null ;   ?>
     <section id="signUpForm" class="row col-10 m-5">
     <div  id="form" class="col-xs-12 col-sm-10 col-md-5 col-lg-6 container w-50 border border-2 pb-3">
@@ -117,6 +99,9 @@
             </div>
 
             <button name="signIn" type="submit" class="btn btn-primary mt-2">Sign In</button>
+            <span  class="text-muted ">Don't have an account ? <a class="text-primary" id="singUp12" >Sign Up</a> </span>
+
+            
         </form>
     </div> 
    

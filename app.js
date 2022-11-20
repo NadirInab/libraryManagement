@@ -13,8 +13,8 @@ var signUpForm =  document.getElementById("signUpForm") ;
 
 signUp.addEventListener("click", ()=>{
     alert("here signUp") ;
-    signUpForm.style.visibility = "visible" ;
-    // signInForm.style.display = "none" ;
+    signUpForm.style.display = "contents" ;
+    signInForm.style.display = "none" ;
 })
 
 signIn.addEventListener("click", ()=>{

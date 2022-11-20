@@ -4,6 +4,10 @@
 body{
     overflow-x: hidden;
 }
+body a{
+    text-decoration: none;
+    color: white;
+}
 #aside{
     background-color:rgb(234, 234, 234);
     height: 100%;
@@ -32,11 +36,15 @@ body{
     box-shadow: inset 100px 0 0 0 #54b3d6;
     color: white;
 }
-
-#signUpForm{
+#signUp12{
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid tomato;
+}
+/* #signUpForm{
     visibility:hidden;
     font-size: 1.2vw;
-}
+} */
 
 #signInForm{
     margin-top: 5rem;
@@ -97,8 +105,5 @@ body{
     background-color: rgb(250, 232, 232);
 }
 
-/* ============ */
-#profileSection{
-    /* display: none; */
-    border: 2px solid red;
-}
+
+
