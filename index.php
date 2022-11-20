@@ -20,38 +20,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/style.css">
     <title>YouCode Library</title>
 </head>
 <body class="row">
 <nav class="navbar navbar-expand-lg bg-dark bg-muted">
-    <div class="container">
-      <div>
-      <img id="logo" src="images/YouCode.png" alt=""> 
-        <span class="navbar-brand fw-bold" href="#">Library Managemkent</span>
+    <div class="container-fluid">
+      <div class="mx-5">
+      <img id="logo" src="images/theLogo.png" alt=""> 
+        <span class="navbar-brand fw-bold text-white " href="#">Library Management</span>
       </div>
-      <button class="btn btn-primary float-right">
-        Sign out
+      <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
+      <button id="singUp12" class="btn btn-primary float-right ml-5">
+        Sign Up 
+        <!-- Is session out  else Up -->
       </button>
   </div>
 </nav>
+
+<!-- <div id="aside" class="container text-light">
+        <div id="aside" class="container text-light">
+            <div class="text-center pt-2">
+                <img class="rounded-circle w-50 h-50" alt="">
+                <h4>Welcome</h4>
+            </div>
+            <ul class="list-group w-75">
+                <li class="list"> <a class="" href="#"> Profile </a> </li>
+                <li class="list"> <a class=""  href="#"> Dashboard </a> </li>
+                <li class="list"> <a class=""  href="#"> Books </a> </li>
+                <li class="list"> <a class=""  href="#"> Users </a> </li>
+                <li class="list"> <a class=""  href="#"> statistics </a> </li>
+            </ul>
+            
+        </div>
+        
+    </div> -->
+    <hr>
+    <hr>
     <?= ($notRegistered) ? $notRegistered : null ;   ?>
-    <section class="col-8">
-    <div class="container w-50">
-        <h2>Admin</h2>
+    <section id="signUpForm" class="row col-10 m-5">
+    <div  id="form" class="col-xs-12 col-sm-10 col-md-5 col-lg-6 container w-50 border border-2 pb-3">
+    <h4 class="text-center ">Sign Up </h4>
         <?php if($userExist) : ?>
         <div class="alert alert-danger">
             <?= $userExist ?>
         </div>
         <?php endif ;  ?>
-        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
-            <div class="mb-3">
+        <form style="font-size: 1.2vw;" method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
+            <div class="mb-3 col-">
                 <label for="exampleInputEmail1" class="form-label">Full Name</label>
-                <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input name="name" type="text" class="form-control input-group input-group-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <label for="exampleInputEmail1" class="form-label">Email address <i class="fa-solid fa-circle-envelope"></i></label>
                 <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
@@ -67,63 +91,35 @@
                 <input name="pwd" type="password" class="form-control" id="exampleInputPassword1">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
                 <input name="confirmedPwd" type="password" class="form-control" id="exampleInputPassword1">
             </div>
             <?php if($pwdError) :  ?>
                 <div class="alert alert-danger"><?= $pwdError ?></div>
             <?php endif ; ?>
-            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+            <button name="submit" type="submit" class="btn btn-primary">Sign Up</button>
+            <span  class="text-muted ">Already Sign Up ? <a class="text-primary" id="signInLink" >Sign In</a> </span>
         </form>
     </div> 
+    <img id="img"  class="d-none d-md-inline col-md-4 col-lg-4" src="images/Bibliophile.gif" alt="">
+    </section> 
 
-
-     <hr>
-     <div class="container w-50">
-        <h2>add Book</h2>
-        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Title</label>
-                <input name="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Publish Date</label>
-                <input name="date" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <select name="type" class="form-select" aria-label="Default select example">
-                <option selected>Book type</option>
-                <option value="SC">SC</option>
-                <option value="Cartoon">Cartoon</option>
-                <option value="IT">IT</option>
-            </select>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Book Image</label>
-                <input name="bookImage" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <button name="addBook" type="submit" class="btn btn-primary mt-2">Submit</button>
-        </form>
-    </div> 
-    <hr> 
-
-
-
-    <div class="container w-50">
-        <h2>Sign in</h2>
-        <!--<form method="POST" action="./templates/adminPage.php"> -->
+    <div id="signInForm" class="container w-50">
+        <h2 class="text-center ">Sign In</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"] ?>">
-            <div class="mb-3">
+            <div class="mb-3 w-75 ">
                 <label for="exampleInputEmail1" class="form-label">Email </label>
                 <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 w-75">
                 <label for="exampleInputEmail1" class="form-label">Password</label>
                 <input name="pwd" type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
 
-            <button name="signIn" type="submit" class="btn btn-primary mt-2">Submit</button>
+            <button name="signIn" type="submit" class="btn btn-primary mt-2">Sign In</button>
         </form>
-    </div>
-    </section> 
+    </div> 
+   
     
     <?php include "templates/footer.php" ?>
 

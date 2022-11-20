@@ -17,25 +17,24 @@
 ?>
     <aside class="col-sm-1 col-md-2 col-lg-2">
         <div id="aside" class="container text-light">
-            <div class="text-center pt-2">
+            <div class="text-center text-dark pt-2">
                 <img class="rounded-circle w-50 h-50" src="../images/<?=  $_SESSION["profile"] ?>" alt="">
                 <h4>Welcome <?= $_SESSION["admin"] ?></h4>
             </div>
-            <ul class="list-group w-75">
-                <li class="list-group-item"> <a class="text-decoration-none fw-bold" href="#"> Profile </a> </li>
-                <li class="list-group-item"> <a class="text-decoration-none fw-bold"  href="#"> Dashboard </a> </li>
-                <li class="list-group-item"> <a class="text-decoration-none fw-bold"  href="#"> Books </a> </li>
-                <li class="list-group-item"> <a class="text-decoration-none fw-bold"  href="#"> Users </a> </li>
-                <li class="list-group-item"> <a class="text-decoration-none fw-bold"  href="#"> statistics </a> </li>
+            <ul id="side" class="list-group w-75">
+                <li class="list "> <i class="fa-solid fa-user-vneck"></i> <a class=""> Profile </a> </li>
+                <li class="list"> <a class=""  href="#"> Dashboard </a> </li>
+                <li class="list"> <a class=""  href="#"> Books </a> </li>
+                <li class="list"> <a class=""  href="#"> Users </a> </li>
+                <li class="list"> <a class=""  href="#"> statistics </a> </li>
             </ul>
-            
         </div>
-    
     </aside> 
-    <main class="col- col-sm-3 col-md-6 col-lg-9 pt-5">
+        <?php //require "profile.php" ?>
+    <main class="col- col-sm-3 col-md-6 col-lg-10 pt-5">
         <div class="row d-flex justify-content-around">
         <?php foreach($booksData as $book) : ?>
-            <div class="col- mx-1 card" style="width: 16rem;">
+            <div class="col- mx-1 card mt-3" style="width: 18rem;">
                  <img src="../images/<?= $book["image"] ?>" class="card-img-top" style="height: 15rem ;" alt="...">
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
@@ -48,7 +47,7 @@
                 </div>
                 <div class="card-body">
                     <button class="btn btn-primary"><a href="../process.php?id=<?=$book["isbn"]?>">update </a>  </button>
-                    <button name="delete" value="delete" class="btn btn-danger"><a href="adminPage.php?id=<?=$book["isbn"]?>&action=delete">delete </a>  </button>
+                    <button name="delete" value="delete" class="btn btn-danger text-dark"><a href="adminPage.php?id=<?=$book["isbn"]?>&action=delete">delete </a>  </button>
                 </div>
             </div>
             <?php endforeach ;  ?>
@@ -56,7 +55,7 @@
     </main>
 
     
-    <div class="container w-50 pb-5">
+    <!-- <div class="container w-50 pb-5">
         <h2>add Book</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
             <div class="mb-3">
@@ -80,7 +79,7 @@
             </div>
             <button name="addBook" type="submit" class="btn btn-primary mt-2">  Submit</button>
         </form>
-    </div>  
+    </div>   -->
 <?php
     require "footer.php" ;
 ?>

@@ -12,20 +12,3 @@ class AdminFactory {
         $stmt->execute() ;
     }
 }
-
-
-
-
-// fetching admin .
-/* 
-  adminData = [] ;
-  adminData = AdminFactory::createAdmin(...$result) ;
-
-  array_push(adminData, AdminFactory::createAdmin(...result)) ;
-
-
-  first of all add data to db . and then fetch in classes .
-  wish will make it easier . 
-
-  add in easy way . 
-*/

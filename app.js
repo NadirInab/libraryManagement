@@ -1,15 +1,23 @@
-list = document.querySelectorAll(".list-group-item") ;
-// var close = document.getElementById("close") ;
-// var aside = document.getElementById("aside") ;
+var profile = document.getElementById("profile") ;
+var profileSection =  document.getElementById("profileSection") ;
 
-// for(let i = 0 ; i < list.length ; i++){
-//     lis
-//     }
-// close.addEventListener("click", ()=>{
-//     aside.style.width = "10px" ;
-// })
-// list.forEach(item =>{
-//     item.addEventListener("click", ()=>{
-//         item.setAttribute("class","list-group-item list-group-item-action active" ) ;
-//     })
-// })
+var signIn =  document.getElementById("signInLink") ;
+var signUp =  document.getElementById("singUp12") ;
+
+var signInForm =  document.getElementById("signInForm") ;
+var signUpForm =  document.getElementById("signUpForm") ;
+
+// alert("hi") ;
+
+// console.log(signIn) ;
+
+signUp.addEventListener("click", ()=>{
+    alert("here signUp") ;
+    signUpForm.style.visibility = "visible" ;
+    // signInForm.style.display = "none" ;
+})
+
+signIn.addEventListener("click", ()=>{
+    signUpForm.style.display = "none" ;
+    signInForm.style.display = "block" ;
+})

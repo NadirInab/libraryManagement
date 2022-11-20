@@ -1,6 +1,6 @@
 <?php
 
-spl_autoload_register("autoloader") ;
+spl_autoload_register("autoLoader") ;
 
 function autoLoader($className){   
     $path = "../classes/" ;
@@ -9,6 +9,5 @@ function autoLoader($className){
     if(!file_exists($fullPath)){
         return false ;
     }
-    include $fullPath ;
-    
+     require $fullPath ;
 }

@@ -1,4 +1,5 @@
 <?php
+    // include "../includes/autoloader.php" ;
     include "../includes/autoloader.php" ;
     $connection = new DbConnection ;
     $connect = $connection->connect() ;
@@ -48,7 +49,7 @@
     function addBook(){
         global $connect ;
         $bookData = ["title" => $_POST["title"], "type" => $_POST["type"], "image" => $_POST["bookImage"], "publish_date" => $_POST["publish_date"]] ;
-        $book1 = AdminCrud::addBook($bookData, $_SESSION["admin_id"],$connect) ;
+        $book1 = AdminCrud::addBook($bookData, $_SESSION["admin_id"],$connect) ; // see if book is necessary
         header("location:" .$_SERVER['PHP_SELF'] ) ;
     } 
 

@@ -1,4 +1,4 @@
-<div class="col-7 mx-5 pt-4">
+<div id="profileSection" class="col-7 mx-5 pt-4">
         <div class="card p-3" >
         <div class="row g-0">
             <div class="col-md-6 border border-2 ">
