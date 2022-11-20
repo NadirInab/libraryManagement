@@ -7,8 +7,8 @@
         <div class="col-md-6">
             <div class="card-body border border-muted h-100 p-5 ">
                 <h6 class="card-title p-2"> <strong class="text-secondary">  Name  : </strong>  <?= $_SESSION["admin"]   ?> </h6>
-                <h6 class="card-title p-2"> <strong>  Email : </strong> <?= $_SESSION["email"]   ?></h6>
-                <h6 class="card-title p-2"> <strong>  Phone : </strong>  <?= $_SESSION["phone"]   ?></h6>
+                <h6 class="card-title p-2"> <strong class="text-secondary">  Email : </strong> <?= $_SESSION["email"]   ?></h6>
+                <h6 class="card-title p-2"> <strong class="text-secondary">  Phone : </strong>  <?= $_SESSION["phone"]   ?></h6>
             </div>
         </div>
         </div>

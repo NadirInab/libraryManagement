@@ -1,6 +1,6 @@
 <?php
     // include "../includes/autoloader.php" ;
-    include  "../includes/autoloader.php" ;
+    include __DIR__."/../includes/autoloader.php" ;
     $connection = new DbConnection ;
     $connect = $connection->connect() ;
 
@@ -61,8 +61,6 @@
         $stmt->bindParam(':admin_id' , $admin_id) ;
         $stmt->execute() ;
         $booksData = $stmt->fetchAll(PDO::FETCH_ASSOC) ;
-        // $rows = $stmt->rowCount() ;
-        
         return $booksData ;
     }
 
@@ -87,6 +85,14 @@
     function BooksCounter(){
         global $connect ;
         $query = "SELECT * FROM book" ;
+        $stmt = $connect->query($query) ;
+        $rowCount = $stmt->rowCount() ;
+        return $rowCount ;
+    }
+
+    function typeCounter(){
+        global $connect ;
+        $query = "SELECT * FROM book WHERE type LIKE '%IT%' " ;
         $stmt = $connect->query($query) ;
         $rowCount = $stmt->rowCount() ;
         return $rowCount ;

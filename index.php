@@ -1,5 +1,5 @@
 <?php 
-    include "services/adminService.php" ;
+    include __DIR__."/services/adminService.php" ;
     include "includes/function.php" ;
 
     $userExist = null ;
@@ -27,19 +27,24 @@
     <title>YouCode Library</title>
 </head>
 <body class="row">
-    <?php if(isConnected()) : ?>
+    <?php if(!isConnected()) : ?>
     <nav class="navbar navbar-expand-lg bg-dark bg-muted">
         <div class="container-fluid">
         <div class="mx-5">
         <img id="logo" src="images/theLogo.png" alt=""> 
             <span class="navbar-brand fw-bold text-white " href="#">Library Management</span>
         </div>
-        <i class="fa-sharp fa-solid fa-right-to-bracket"></i>
-        <button  class="btn btn-primary float-right ml-5">
-            Sign Up 
-        </button>
     </div>
     </nav>
+    <?php else : ?>
+        <nav class="navbar navbar-expand-lg bg-dark bg-muted">
+            <div class="container-fluid">
+                <div class="mx-5">
+                    <img id="logo" src="images/theLogo.png" alt=""> 
+                    <span class="navbar-brand fw-bold text-white " href="#">Library Management</span>
+                </div>
+            </div>
+        </nav>
     <?php endif ; ?>
 
     <?= ($notRegistered) ? $notRegistered : null ;   ?>

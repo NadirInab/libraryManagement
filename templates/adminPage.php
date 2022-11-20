@@ -1,4 +1,5 @@
 <?php 
+define('__ROOT__', "http://localhost/schoolLibrary/libraryManagement/") ;
     require "navbar.php"  ;
     include "../services/adminService.php" ;
     //include "../includes/function.php" ;
@@ -30,10 +31,12 @@
                 <h4>Welcome <?= $_SESSION["admin"] ?></h4>
             </div>
             <ul id="side" class="list-group w-75">
-                <li class="list"> <a  href="adminPage.php?&action=profile" class=""> Profile </a> </li>
+                <li class="list"> <a  href="<?= __ROOT__?>adminPage.php?&action=profile" class=""> Profile </a> </li>
                 <li class="list"> <a  href="adminPage.php?&action=dashboard"> Dashboard </a> </li>
                 <li class="list"> <a  href="adminPage.php?&action=books"> Books </a> </li>
+
                 <li class="list"> <a  href="adminPage.php?&action=addBook"> addBook </a> </li>
+
                 <li class="list"> <a  href="adminPage.php?&action=signOut"> <i class="fa-solid fa-right-from-bracket"></i> Sign Out </a> </li>
             </ul>
         </div>

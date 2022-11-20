@@ -1,4 +1,5 @@
 <?php
+
 class AdminFactory {
     public static function createAdmin($connection,$data){
         $Admin1 = new Admin($data["fullName"],$data["email"],$data["profile"],$data["phone"],$data["pwd"]) ;

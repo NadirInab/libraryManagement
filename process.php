@@ -4,7 +4,6 @@
     $connection = new DbConnection ;
     $connect = $connection->connect() ;
 
-
     $book_id = $_GET["id"] ;
     $bookQuery = "SELECT * FROM book WHERE isbn = :isbn" ;
     $stmt = $connect->prepare($bookQuery) ;
@@ -15,7 +14,7 @@
     if(isset($_POST["upDateBook"])){
         $bookData = ["title" => $_POST["title"], "type" => $_POST["type"], "image" => $_POST["bookImage"], "publish_date" => $_POST["publish_date"],"isbn" =>$book_id ] ;
         AdminCrud::upDateBook($bookData,$connect) ;
-        //header("location:http://localhost/schoolLibrary/libraryManagement/templates/adminPage.php") ;
+        header("location:http://localhost/schoolLibrary/libraryManagement/templates/adminPage.php") ;
     }
 
 ?>
@@ -45,7 +44,7 @@
     
     <div class="container w-50 p-3 mt-5">
         <h2>upDate  Book</h2>
-        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
+        <form method="POST" action="<?php echo $_SERVER["PHP_SELF"].'?id='.$book_id?>">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Title</label>
                 <input name="title" type="text" value="<?= $bookData['title'] ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

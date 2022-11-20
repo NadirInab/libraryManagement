@@ -12,7 +12,8 @@
     <title>YouCode Library</title>
 </head>
 <body class="row">
-<nav class="navbar navbar-expand-lg">
+
+<nav class="navbar navbar-expand-lg bg-secondary">
     <div class="container-xxl">
       <div>
       <img id="logo" src="../images/YouCode.png" alt=""> 
