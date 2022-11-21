@@ -1,6 +1,6 @@
 <?php 
-    session_start() ;
    include "includes/autoloader.php" ;
+   include "templates/navbar.php" ;
     $connection = new DbConnection ;
     $connect = $connection->connect() ;
 
@@ -16,7 +16,6 @@
         AdminCrud::upDateBook($bookData,$connect) ;
         header("location:http://localhost/libraryManagement/templates/adminPage.php?action=books") ;
     }
-
 ?>
     <!DOCTYPE html>
 <html lang="en">
@@ -29,19 +28,6 @@
     <title>YouCode Library</title>
 </head>
 <body class="row">
-<nav class="navbar navbar-expand-lg bg-dark bg-muted">
-    <div class="container">
-      <div>
-      <img id="logo" src="images/YouCode.png" alt=""> 
-        <span class="navbar-brand fw-bold" href="#">Library Management</span>
-      </div>
-      <button class="btn btn-primary float-right">
-        Sign out
-      </button>
-  </div>
-</nav>
-
-    
     <div class="container w-50 p-3 mt-5">
         <h2>upDate  Book</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"].'?id='.$book_id?>">
@@ -63,7 +49,9 @@
             </select>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Book Image</label>
+                <!-- <input name="bookImage" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
                 <input name="bookImage" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="hidden" name="bookImage" value="<?= $bookData['image'] ?>" > 
             </div>
             <button name="upDateBook" type="submit" class="btn btn-primary mt-2">  Submit</button>
         </form>

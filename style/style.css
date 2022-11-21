@@ -1,3 +1,9 @@
+:root{
+    --succes-color:rgb(82, 238, 82);
+    --error-color: red; 
+    --body-color :azure;
+    --form-color :lightblue;
+}
 *{
     box-sizing: border-box;
 }
@@ -44,10 +50,25 @@ nav.navbar{
     cursor: pointer;
     border: 2px solid tomato;
 }
-/* #signUpForm{
-    visibility:hidden;
-    font-size: 1.2vw;
-} */
+
+
+.form-control.error input{
+    border-color: var(--error-color);
+}
+.form-control.success input{
+    border: 2px solid;
+    border-color: var(--succes-color);
+}
+
+.form-control small{
+    color:var(--error-color);
+    visibility: hidden;
+    font-size: 1rem;
+}
+.form-control.error small{
+    visibility: visible;
+}
+
 
 #signInForm{
     margin-top: 5rem;

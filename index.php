@@ -1,13 +1,11 @@
 <?php 
     include __DIR__."/services/adminService.php" ;
     include "includes/function.php" ;
-
-    //  ($notRegistered) ? $notRegistered : null ;   
+    include "templates/navbar.php" ; 
 
     $userExist = null ;
     $pwdError = null ;
     $notRegistered = null ;
-
     if(isset($_POST["submit"])){
         (!pwdIsConfirmed($_POST["pwd"], $_POST["confirmedPwd"])) ?$pwdError = "Please enter matching password !!" : null ;  
         $userExist = createAdmin() ;
@@ -15,7 +13,6 @@
     if(isset($_POST["signIn"])){
         $notRegistered = signAdminIn() ;
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,14 +27,6 @@
     <title>YouCode Library</title>
 </head>
 <body class="row">
-    <nav class="navbar navbar-expand-lg bg-dark bg-muted">
-        <div class="container-fluid">
-        <div class="mx-5">
-        <img id="logo" src="images/theLogo.png" alt=""> 
-            <span class="navbar-brand fw-bold text-white " href="#">Library Management</span>
-        </div>
-    </div>
-    </nav>
     <?php if($notRegistered) :  ?>
         <div class="alert alert-warning text-center m-auto w-50">
          <i class="fa-solid fa-face-relieved"></i> <?= $notRegistered  ?>
@@ -51,30 +40,36 @@
              <?= $userExist ?>
         </div>
         <?php endif ;  ?>
-        <form style="font-size: 1.2vw;" method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
+        <form id="signingUpForm" style="font-size: 1.2vw;" method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
             <div class="mb-3 col-">
                 <label for="exampleInputEmail1" class="form-label">Full Name</label>
                 <input name="name" type="text" class="form-control input-group input-group-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <small></small>
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address <i class="fa-solid fa-circle-envelope"></i></label>
-                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input name="email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <small></small>
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Phone</label>
                 <input name="phone" type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="06-12-33-45-67">
+                <small></small>
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Image</label>
                 <input name="profile" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <small></small>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input name="pwd" type="password" class="form-control" id="exampleInputPassword1">
+                <small></small>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
                 <input name="confirmedPwd" type="password" class="form-control" id="exampleInputPassword1">
+                <small></small>
             </div>
             <?php if($pwdError) :  ?>
                 <div class="alert alert-danger">  <?= $pwdError ?> <i class="fa-solid fa-face-relieved"></i></div>
@@ -100,12 +95,8 @@
 
             <button name="signIn" type="submit" class="btn btn-primary mt-2">Sign In</button>
             <span  class="text-muted ">Don't have an account ? <a class="text-primary" id="singUp12" >Sign Up</a> </span>
-
-            
         </form>
     </div> 
-   
-    
     <?php include "templates/footer.php" ?>
 
 
