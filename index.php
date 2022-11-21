@@ -78,7 +78,7 @@
             <span  class="text-muted ">Already Sign Up ? <a class="text-primary" id="signInLink" >Sign In</a> </span>
         </form>
     </div> 
-    <img id="img"  class="d-none d-md-inline col-md-4 col-lg-4" src="images/Bibliophile.gif" alt="">
+    <img id="img"  class="d-none d-md-inline col-md-4 col-lg-5" src="images/Bibliophile.gif" alt="">
     </section> 
 
     <div id="signInForm" class="container w-50">
