@@ -1,8 +1,8 @@
 <?php 
-define('__ABS_PATH__', "http://localhost/schoolLibrary/libraryManagement") ;
+    define('__ABS_PATH__', "http://localhost/libraryManagement") ;
     require "navbar.php"  ;
     include "../services/adminService.php" ;
-    //include "../includes/function.php" ;
+    include "../includes/function.php" ;
 
     $booksData = fetchingBooks() ;
 
@@ -24,18 +24,19 @@ define('__ABS_PATH__', "http://localhost/schoolLibrary/libraryManagement") ;
   
 
 ?>
+    <?php if(isConnected()) : ?>
     <aside  class="col-sm-1 col-md-2 col-lg-2">
         <div id="aside" class="container text-light">
             <div class="text-center text-dark pt-2">
                 <img class="rounded-circle w-50 h-50" src="../images/<?=  $_SESSION["profile"] ?>" alt="">
-                <h4>Welcome <?= $_SESSION["admin"] ?></h4>
+                <h5 > Welcome <strong class="text-secondary"> <?= $_SESSION["admin"] ?> </strong> </h5>
             </div>
             <ul id="side" class="list-group w-75">
-                <li class="list"> <a  href="adminPage.php?&action=dashboard"> Dashboard </a> </li>
-                <li class="list"> <a  href="adminPage.php?&action=books"> Books </a> </li>
-                <li class="list"> <a  href="adminPage.php?&action=profile" class=""> Profile </a> </li>
-                <li class="list"> <a  href="adminPage.php?&action=addBook"> addBook </a> </li>
-                <li class="list"> <a  href="adminPage.php?&action=signOut"> <i class="fa-solid fa-right-from-bracket"></i> Sign Out </a> </li>
+                <li class="list pt-2"> <a  href="adminPage.php?&action=dashboard"> <i class="fa-solid fa-house"></i> Dashboard </a> </li>
+                <li class="list pt-2"> <a  href="adminPage.php?&action=books"><i class="fa-solid fa-book"></i> Books </a> </li>
+                <li class="list pt-2"> <a  href="adminPage.php?&action=profile" class=""><i class="fa-solid fa-user"></i> Profile </a></li>
+                <li class="list pt-2"> <a  href="adminPage.php?&action=addBook"><i class="fa-solid fa-plus"></i> addBook</a></li>
+                <li class="list pt-2"> <a  href="adminPage.php?&action=signOut"> <i class="fa-solid fa-right-from-bracket"></i> Sign Out</a> </li>
             </ul>
         </div>
     </aside> 
@@ -94,7 +95,7 @@ define('__ABS_PATH__', "http://localhost/schoolLibrary/libraryManagement") ;
             </div>
             <select name="type" class="form-select" aria-label="Default select example">
                 <option selected>Book type</option>
-                <option value="SC">Science fitction</option>
+                <option value="FN">fantasy Novel</option>
                 <option value="Mystery">Mystery</option>
                 <option value="IT">IT</option>
                 <option value="ST">Biographie</option>
@@ -122,7 +123,7 @@ define('__ABS_PATH__', "http://localhost/schoolLibrary/libraryManagement") ;
             </div>
             <select name="type" class="form-select" aria-label="Default select example">
                 <option  selected>Book type</option>
-                <option <?= ($bookData["type"] == "SC")? "selected" : "" ?> value="SC">SC</option>
+                <option <?= ($bookData["type"] == "FN")? "selected" : "" ?> value="FN">FN</option>
                 <option <?= ($bookData["type"] == "Cartoon")? "selected" : "" ?> value="Cartoon">Cartoon</option>
                 <option  <?= ($bookData["type"] == "IT")? "selected" : "" ?> value="IT">IT</option>
                 <option  <?= ($bookData["type"] == "ST")? "selected" : "" ?> value="ST">Short Stories</option>
@@ -136,6 +137,8 @@ define('__ABS_PATH__', "http://localhost/schoolLibrary/libraryManagement") ;
         </form>
     </div> 
     <?php endif ;  ?>
+
+    <?php endif ; ?>
 <?php
     require "footer.php" ;
 ?>

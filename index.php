@@ -2,13 +2,15 @@
     include __DIR__."/services/adminService.php" ;
     include "includes/function.php" ;
 
+    //  ($notRegistered) ? $notRegistered : null ;   
+
     $userExist = null ;
     $pwdError = null ;
     $notRegistered = null ;
-    
+
     if(isset($_POST["submit"])){
+        (!pwdIsConfirmed($_POST["pwd"], $_POST["confirmedPwd"])) ?$pwdError = "Please enter matching password !!" : null ;  
         $userExist = createAdmin() ;
-        // header("location :http://localhost/schoolLibrary/libraryManagement/index.php") ;
     }
     if(isset($_POST["signIn"])){
         $notRegistered = signAdminIn() ;
@@ -28,7 +30,6 @@
     <title>YouCode Library</title>
 </head>
 <body class="row">
-    <?php if(!isConnected()) : ?>
     <nav class="navbar navbar-expand-lg bg-dark bg-muted">
         <div class="container-fluid">
         <div class="mx-5">
@@ -37,24 +38,17 @@
         </div>
     </div>
     </nav>
-    <?php else : ?>
-        <nav class="navbar navbar-expand-lg bg-dark bg-muted">
-            <div class="container-fluid">
-                <div class="mx-5">
-                    <img id="logo" src="images/theLogo.png" alt=""> 
-                    <span class="navbar-brand fw-bold text-white " href="#">Library Management</span>
-                </div>
-            </div>
-        </nav>
+    <?php if($notRegistered) :  ?>
+        <div class="alert alert-warning text-center m-auto w-50">
+         <i class="fa-solid fa-face-relieved"></i> <?= $notRegistered  ?>
+        </div>
     <?php endif ; ?>
-
-    <?= ($notRegistered) ? $notRegistered : null ;   ?>
     <section id="signUpForm" class="row col-10 m-5">
     <div  id="form" class="col-xs-12 col-sm-10 col-md-5 col-lg-6 container w-50 border border-2 pb-3">
     <h4 class="text-center ">Sign Up </h4>
         <?php if($userExist) : ?>
         <div class="alert alert-danger">
-            <?= $userExist ?>
+             <?= $userExist ?>
         </div>
         <?php endif ;  ?>
         <form style="font-size: 1.2vw;" method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
@@ -83,7 +77,7 @@
                 <input name="confirmedPwd" type="password" class="form-control" id="exampleInputPassword1">
             </div>
             <?php if($pwdError) :  ?>
-                <div class="alert alert-danger"><?= $pwdError ?></div>
+                <div class="alert alert-danger">  <?= $pwdError ?> <i class="fa-solid fa-face-relieved"></i></div>
             <?php endif ; ?>
             <button name="submit" type="submit" class="btn btn-primary">Sign Up</button>
             <span  class="text-muted ">Already Sign Up ? <a class="text-primary" id="signInLink" >Sign In</a> </span>

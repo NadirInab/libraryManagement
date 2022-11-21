@@ -7,7 +7,7 @@
     function createAdmin(){
             global $connect ;
             $data = ["fullName" => $_POST["name"],"email" => $_POST["email"],"profile" => $_POST["profile"], "phone" => $_POST["phone"] ,"pwd" => $_POST["pwd"],"confirmedPwd" => $_POST["confirmedPwd"]] ;
-            (!pwdIsConfirmed($data["pwd"], $data["confirmedPwd"])) ? $pwdError = "Please enter matching passwords"  : null  ; // code doesn't break .
+            //(!pwdIsConfirmed($data["pwd"], $data["confirmedPwd"])) ? exit()  : null  ; // code doesn't break .
             $query = "SELECT * FROM admin WHERE email = :email and fullName = :fullName " ;
             $stmt = $connect->prepare($query) ;
             $stmt->bindParam(":email", $data["email"]) ;
@@ -19,7 +19,7 @@
                 return $userExist ;
             }else{
                 AdminFactory::createAdmin($connect, $data) ;
-                return null ;
+                return "user Created successfully " ;
             }  
     }
     
@@ -40,9 +40,9 @@
             $_SESSION["phone"] = $result["phone"] ;
             $_SESSION["email"] = $result["email"] ;
             $_SESSION["admin_id"] = $result["admin_id"] ;
-            header("location: http://localhost/schoolLibrary/libraryManagement/templates/adminPage.php?&action=books") ;
+            header("location: http://localhost/libraryManagement/templates/adminPage.php?&action=books") ;
         }else{
-            return  "<h3> user not registered</h3>" ;
+            return  "User not registered Sign up first" ;
         }
     }
 
@@ -71,7 +71,7 @@
 
     function signOut(){
         session_destroy();
-        header("location: http://localhost/schoolLibrary/libraryManagement/index.php") ;
+        header("location: http://localhost/libraryManagement/index.php") ;
         
     }
 
