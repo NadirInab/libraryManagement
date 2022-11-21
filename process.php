@@ -14,7 +14,7 @@
     if(isset($_POST["upDateBook"])){
         $bookData = ["title" => $_POST["title"], "type" => $_POST["type"], "image" => $_POST["bookImage"], "publish_date" => $_POST["publish_date"],"isbn" =>$book_id ] ;
         AdminCrud::upDateBook($bookData,$connect) ;
-        header("location:http://localhost/schoolLibrary/libraryManagement/templates/adminPage.php") ;
+        header("location:http://localhost/schoolLibrary/libraryManagement/templates/adminPage.php?action=books") ;
     }
 
 ?>

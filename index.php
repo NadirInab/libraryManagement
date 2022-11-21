@@ -8,6 +8,7 @@
     
     if(isset($_POST["submit"])){
         $userExist = createAdmin() ;
+        // header("location :http://localhost/schoolLibrary/libraryManagement/index.php") ;
     }
     if(isset($_POST["signIn"])){
         $notRegistered = signAdminIn() ;

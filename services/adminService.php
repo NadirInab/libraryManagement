@@ -40,7 +40,7 @@
             $_SESSION["phone"] = $result["phone"] ;
             $_SESSION["email"] = $result["email"] ;
             $_SESSION["admin_id"] = $result["admin_id"] ;
-            header("location: http://localhost/schoolLibrary/libraryManagement/templates/adminPage.php") ;
+            header("location: http://localhost/schoolLibrary/libraryManagement/templates/adminPage.php?&action=books") ;
         }else{
             return  "<h3> user not registered</h3>" ;
         }

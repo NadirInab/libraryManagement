@@ -1,5 +1,5 @@
 <?php 
-define('__ROOT__', "http://localhost/schoolLibrary/libraryManagement/") ;
+define('__ABS_PATH__', "http://localhost/schoolLibrary/libraryManagement") ;
     require "navbar.php"  ;
     include "../services/adminService.php" ;
     //include "../includes/function.php" ;
@@ -24,19 +24,17 @@ define('__ROOT__', "http://localhost/schoolLibrary/libraryManagement/") ;
   
 
 ?>
-    <aside class="col-sm-1 col-md-2 col-lg-2">
+    <aside  class="col-sm-1 col-md-2 col-lg-2">
         <div id="aside" class="container text-light">
             <div class="text-center text-dark pt-2">
                 <img class="rounded-circle w-50 h-50" src="../images/<?=  $_SESSION["profile"] ?>" alt="">
                 <h4>Welcome <?= $_SESSION["admin"] ?></h4>
             </div>
             <ul id="side" class="list-group w-75">
-                <li class="list"> <a  href="<?= __ROOT__?>adminPage.php?&action=profile" class=""> Profile </a> </li>
                 <li class="list"> <a  href="adminPage.php?&action=dashboard"> Dashboard </a> </li>
                 <li class="list"> <a  href="adminPage.php?&action=books"> Books </a> </li>
-
+                <li class="list"> <a  href="adminPage.php?&action=profile" class=""> Profile </a> </li>
                 <li class="list"> <a  href="adminPage.php?&action=addBook"> addBook </a> </li>
-
                 <li class="list"> <a  href="adminPage.php?&action=signOut"> <i class="fa-solid fa-right-from-bracket"></i> Sign Out </a> </li>
             </ul>
         </div>

@@ -16,7 +16,7 @@
 <nav class="navbar navbar-expand-lg bg-secondary">
     <div class="container-xxl">
       <div>
-      <img id="logo" src="../images/YouCode.png" alt=""> 
+      <img id="logo" src="../images/theLogo.png" alt=""> 
         <span class="navbar-brand fw-bold " href="#">Library Management</span>
       </div>
   </div>
