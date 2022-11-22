@@ -7,6 +7,12 @@ function isConnected(){
     return !empty($_SESSION["admin"]) ;
 }
 
+function isNotSignedIn(){
+    if($_SESSION["admin"] == null){
+        header("location: http://localhost/libraryManagement/") ;
+    }
+}
+
 
 function throwArray($data){
     echo "<pre>" ;

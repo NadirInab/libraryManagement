@@ -1,4 +1,6 @@
 <?php 
+    include "../includes/function.php" ;
+    isNotSignedIn() ;
     $userCount = usersCounter() ;
     $booksCount = BooksCounter() ;
     $fictionCounter = typeCounter() ;

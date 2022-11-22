@@ -1,3 +1,7 @@
+<?php 
+    include "../includes/function.php" ;
+    isNotSignedIn() ;
+?>
 <div id="profileSection" class="col-7 mx-5 pt-4">
         <div class="card p-3" >
         <div class="row g-0">

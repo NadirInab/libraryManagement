@@ -4,6 +4,7 @@
     include "../services/adminService.php" ;
     include "../includes/function.php" ;
 
+    isNotSignedIn() ;
     $booksData = fetchingBooks() ;
 
     if(isset($_POST["addBook"])){
