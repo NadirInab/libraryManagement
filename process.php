@@ -1,4 +1,5 @@
 <?php 
+
    include "includes/autoloader.php" ;
    include "templates/navbar.php" ;
     $connection = new DbConnection ;
@@ -41,7 +42,7 @@
             </div>
             <select name="type" class="form-select" aria-label="Default select example">
                 <option  selected>Book type</option>
-                <option <?= ($bookData["type"] == "SC")? "selected" : "" ?> value="SC">SC</option>
+                <option <?= ($bookData["type"] == "FN")? "selected" : "" ?> value="FN">FN</option>
                 <option <?= ($bookData["type"] == "Cartoon")? "selected" : "" ?> value="Cartoon">Cartoon</option>
                 <option  <?= ($bookData["type"] == "IT")? "selected" : "" ?> value="IT">IT</option>
                 <option  <?= ($bookData["type"] == "ST")? "selected" : "" ?> value="ST">Short Stories</option>
@@ -50,8 +51,7 @@
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Book Image</label>
                 <!-- <input name="bookImage" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
-                <input name="bookImage" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <input type="hidden" name="bookImage" value="<?= $bookData['image'] ?>" > 
+                <input name="bookImage" type="file" class="form-control" value="hiho" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <button name="upDateBook" type="submit" class="btn btn-primary mt-2">  Submit</button>
         </form>

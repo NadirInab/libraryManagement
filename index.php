@@ -6,14 +6,26 @@
     $signUpStatus = null ;
     $pwdError = null ;
     $signInStatus = null ;
+    $notValid = null ;
 
     if(isset($_POST["submit"])){
         (!pwdIsConfirmed($_POST["pwd"], $_POST["confirmedPwd"])) ?$pwdError = "Please enter matching password !!" : null ;  
         $signUpStatus = createAdmin() ;
     }
+
+    // if(isset($_POST["signIn"])){
+    //     if(!inValidInputs($_POST)){
+    //         $signInStatus = signAdminIn() ;
+    //     }else{
+    //         $notValid = inValidInputs($_POST) ;
+    //     }
+    // }
     if(isset($_POST["signIn"])){
-        $signInStatus = signAdminIn() ;
+        $signInStatus = signAdminIn();
     }
+
+    
+    // die() ;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,9 +46,9 @@
          <i class="fa-solid fa-face-relieved"></i> <?= "User Not registered !"  ?>
         </div>
     <?php 
-        // sleep(2) ;
-        // header("Refresh :" , )
-    endif ; ?>
+        header("Refresh:3; url=http://localhost/libraryManagement/index.php") ;
+        endif ; 
+    ?>
 
     <section id="signUpForm" class="row col-10 m-5">
         <div  id="form" class="col-xs-12 col-sm-10 col-md-5 col-lg-6 container w-50 border border-2 pb-3">
@@ -85,6 +97,8 @@
             <?php if($pwdError) :  ?>
                 <div class="alert alert-danger">  <?= $pwdError ?> <i class="fa-solid fa-face-relieved"></i></div>
             <?php endif ; ?>
+            <!-- <button name="submit" type="submit" class="btn btn-primary">Sign Up</button> -->
+            
             <button name="submit" type="submit" class="btn btn-primary">Sign Up</button>
             <span  class="text-muted ">Already Sign Up ? <a class="text-primary" id="signInLink" >Sign In</a> </span>
         </form>
@@ -93,11 +107,14 @@
     </section> 
 
     <div id="signInForm" class="container w-50">
+        <?php if($notValid) : ?>
+            <div class="alert alert-danger"><?= $notValid ;  ?></div>
+        <?php endif ;  ?>
         <h2 class="text-center ">Sign In</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"] ?>">
             <div class="mb-3 w-75 ">
                 <label for="exampleInputEmail1" class="form-label">Email </label>
-                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input name="email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3 w-75">
                 <label for="exampleInputEmail1" class="form-label">Password</label>

@@ -22,4 +22,15 @@ function pwdIsConfirmed($pwd1,$pwd2){
     }
 }
 
+function inValidInputs($data){
+    foreach($data as $datum ){
+        if(strlen($datum) == 0 ){
+            return "inputs must be filled !!" ;
+        }
+        else{
+            return true ;
+        }
+    }
+}
+
 ?>

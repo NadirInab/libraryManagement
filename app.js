@@ -31,14 +31,14 @@ function showSuccess(input){
     formControl.className = "form-control success" ;
 }
 function isValidEmail(email){
-    const regex = new  RegExp("/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/") ;
-    return regex.test(email.value)
+    const pattern =/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
+    return pattern.match(email.value) ;
 }   
 
 // =======================
 
 signingUpForm.addEventListener("submit", (e)=>{
-    e.preventDefault() ;
+    // e.preventDefault() ;
     (userName.value == "") ? showEroor(userName, "userName is required!!") :showSuccess(userName) ;
     (phone.value == "") ? showEroor(phone, "phone is required!!") :showSuccess(phone) ;
     (pwd.value == "") ? showEroor(pwd, "pwd is required!!") :showSuccess(pwd) ;
@@ -57,16 +57,3 @@ signIn.addEventListener("click", ()=>{
     signUpForm.style.display = "none" ;
     signInForm.style.display = "block" ;
 })
-
-
-
-
-    // if(email.value == ""){
-    //     showEroor(email, "email is required!!") ;
-    // }
-    // else if(!isValidEmail(email.value)){
-    //     showEroor(email,"Email is not valid") ;
-    // }
-    //  else{
-    //     showSuccess(email) ;
-    // }
