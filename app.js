@@ -1,6 +1,10 @@
 var profile = document.getElementById("profile") ;
 var profileSection =  document.getElementById("profileSection") ;
 
+var menu = document.getElementById("menu") ;
+var aside = document.getElementById("aside") ;
+
+
 var signIn =  document.getElementById("signInLink") ;
 var signUp =  document.getElementById("singUp12") ;
 var signInForm =  document.getElementById("signInForm") ;
@@ -16,8 +20,12 @@ var profile = document.querySelector('[name="profile"]');
 var pwd = document.querySelector('[name="pwd"]');
 var confirmPwd = document.querySelector('[name="confirmedPwd"]');
 
-
 // =====================
+// menu.addEventListener("click",()=>{
+//     alert("hi") ;
+//     aside.style.display = "block" ;
+// })
+// ============
 
 function showEroor(input, message){
     const formControl = input.parentElement ;

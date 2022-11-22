@@ -17,6 +17,9 @@ body a{
 nav.navbar{
     background-color: #D6E4E5;
 }
+#cardData{
+    max-height: 50%;
+}
 #aside{
     background-color:#CDF0EA;
     height: 100%;
@@ -76,7 +79,7 @@ nav.navbar{
     border: 2px solid lightgray;
     display: none;
 }
-#signInLink{
+#singUp12{
     cursor: pointer;
 }
 
@@ -128,6 +131,50 @@ nav.navbar{
     font-size: 1.1rem;
     background-color:#EFF5F5;
 }
+
+aside{
+    /* border: 3px solid red; */
+    max-width: 10vh;
+}
+#menu{
+    display: none;
+}
+@media screen and (max-width: 1000px) {
+    aside {
+        border: 2px solid lightsalmon;
+    }
+    #menu{
+        display: block;
+        cursor: pointer;
+    }
+    #aside{
+        text-align: center;
+        display: none;
+    }
+    #side{
+        border-bottom: 2px solid lightgray;
+        margin: auto;
+        display: block;
+        margin: 0;
+    }
+    nav.navbar{
+        display: flex ;
+        justify-content: center;
+    }
+  }
+/* @media screen and (max-width: 900px) {
+    aside {
+        border: 2px solid lightsalmon;
+    }
+    #side li{
+        overflow: hidden;
+    }
+    #aside div img,h5{
+        display: none;
+    }
+  } */
+
+
 
 
 

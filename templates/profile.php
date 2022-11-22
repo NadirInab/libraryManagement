@@ -1,5 +1,5 @@
 <?php 
-    include "../includes/function.php" ;
+   // include "../includes/function.php" ;
     isNotSignedIn() ;
 ?>
 <div id="profileSection" class="col-7 mx-5 pt-4">

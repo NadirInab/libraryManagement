@@ -22,12 +22,13 @@
 ?>
     <?php if(isConnected()) : ?>
         <aside  class="col-sm-1 col-md-2 col-lg-2">
+            <h4 class="menu"><i class="fa-solid fa-bars"></i></h4>
             <div id="aside" class="container text-light">
                 <div class="text-center text-dark pt-2">
                     <img class="rounded-circle w-50 h-50" src="../images/<?=  $_SESSION["profile"] ?>" alt="">
                     <h5 > Welcome <strong class="text-secondary"> <?= $_SESSION["admin"] ?> </strong> </h5>
                 </div>
-                <ul id="side" class="list-group w-75">
+                <ul id="side" class="col-1 col-sm-2 col-md-2 list-group w-75">
                     <li class="list pt-2"> <a  href="adminPage.php?&action=dashboard"> <i class="fa-solid fa-house"></i> Dashboard </a> </li>
                     <li class="list pt-2"> <a  href="adminPage.php?&action=books"><i class="fa-solid fa-book"></i> Books </a> </li>
                     <li class="list pt-2"> <a  href="adminPage.php?&action=profile" class=""><i class="fa-solid fa-user"></i> Profile </a></li>
@@ -51,11 +52,11 @@
         ?>
         
         <?php if(isset($_GET['action']) AND $_GET["action"] === "books") :?>
-            <main class="col- col-sm-3 col-md-6 col-lg-10 pt-5">
+            <main class="col- col-sm-3 col-md-5 col-lg-10 pt-5">
                 <div class="row d-flex justify-content-around">
                 <?php foreach($booksData as $book) : ?>
-                    <div class="col- mx-1 card mt-3" style="width: 18rem;">
-                        <img src="../images/<?= $book["image"] ?>" class="card-img-top" style="height: 15rem ;" alt="...">
+                    <div id="cardData" class="col-sm-1 col-md-3 mx-1 card mt-3" style="width: 18rem;">
+                        <img id="bookImg" src="../images/<?= $book["image"] ?>" class="card-img-top" style="height: 15rem ;" alt="...">
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item"> <strong>Isbn &nbsp;&nbsp;&nbsp; :</strong> <?= $book["isbn"] ?> </li>

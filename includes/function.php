@@ -13,7 +13,6 @@ function isNotSignedIn(){
     }
 }
 
-
 function throwArray($data){
     echo "<pre>" ;
         var_dump($data) ;

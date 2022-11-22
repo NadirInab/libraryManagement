@@ -20,7 +20,7 @@
     //         $notValid = inValidInputs($_POST) ;
     //     }
     // }
-    
+
     if(isset($_POST["signIn"])){
         $signInStatus = signAdminIn();
     }
@@ -101,7 +101,7 @@
             <!-- <button name="submit" type="submit" class="btn btn-primary">Sign Up</button> -->
             
             <button name="submit" type="submit" class="btn btn-primary">Sign Up</button>
-            <span  class="text-muted ">Already Sign Up ? <a class="text-primary" id="signInLink" >Sign In</a> </span>
+            <span  class="text-muted ">Already Sign Up ? <a class="text-primary " role="button" id="signInLink" >Sign In</a> </span>
         </form>
     </div> 
     <img id="img"  class="d-none d-md-inline col-md-4 col-lg-5" src="images/Bibliophile.gif" alt="">

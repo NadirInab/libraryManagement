@@ -1,5 +1,5 @@
 <?php 
-    include "../includes/function.php" ;
+    //include "../includes/function.php" ;
     isNotSignedIn() ;
     $userCount = usersCounter() ;
     $booksCount = BooksCounter() ;
