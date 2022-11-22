@@ -3,15 +3,16 @@
     include "includes/function.php" ;
     include "templates/navbar.php" ; 
 
-    $userExist = null ;
+    $signUpStatus = null ;
     $pwdError = null ;
-    $notRegistered = null ;
+    $signInStatus = null ;
+
     if(isset($_POST["submit"])){
         (!pwdIsConfirmed($_POST["pwd"], $_POST["confirmedPwd"])) ?$pwdError = "Please enter matching password !!" : null ;  
-        $userExist = createAdmin() ;
+        $signUpStatus = createAdmin() ;
     }
     if(isset($_POST["signIn"])){
-        $notRegistered = signAdminIn() ;
+        $signInStatus = signAdminIn() ;
     }
 ?>
 <!DOCTYPE html>
@@ -27,18 +28,28 @@
     <title>YouCode Library</title>
 </head>
 <body class="row">
-    <?php if($notRegistered) :  ?>
+
+    <?php if($signInStatus == "notAuser" ) :  ?>
         <div class="alert alert-warning text-center m-auto w-50">
-         <i class="fa-solid fa-face-relieved"></i> <?= $notRegistered  ?>
+         <i class="fa-solid fa-face-relieved"></i> <?= "User Not registered !"  ?>
         </div>
-    <?php endif ; ?>
+    <?php 
+        // sleep(2) ;
+        // header("Refresh :" , )
+    endif ; ?>
+
     <section id="signUpForm" class="row col-10 m-5">
-    <div  id="form" class="col-xs-12 col-sm-10 col-md-5 col-lg-6 container w-50 border border-2 pb-3">
-    <h4 class="text-center ">Sign Up </h4>
-        <?php if($userExist) : ?>
-        <div class="alert alert-danger">
-             <?= $userExist ?>
-        </div>
+        <div  id="form" class="col-xs-12 col-sm-10 col-md-5 col-lg-6 container w-50 border border-2 pb-3">
+        <h4 class="text-center ">Sign Up </h4>
+
+        <?php if($signUpStatus == "Exist") : ?>
+            <div class="alert alert-danger">
+                <strong>User already exist</strong>
+            </div>
+        <?php elseif($signUpStatus == "Created") :?>
+            <div class="alert alert-success">
+                 <strong>User created successfully </strong>
+            </div>
         <?php endif ;  ?>
         <form id="signingUpForm" style="font-size: 1.2vw;" method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
             <div class="mb-3 col-">

@@ -38,7 +38,7 @@ function isValidEmail(email){
 // =======================
 
 signingUpForm.addEventListener("submit", (e)=>{
-    // e.preventDefault() ;
+    e.preventDefault() ;
     (userName.value == "") ? showEroor(userName, "userName is required!!") :showSuccess(userName) ;
     (phone.value == "") ? showEroor(phone, "phone is required!!") :showSuccess(phone) ;
     (pwd.value == "") ? showEroor(pwd, "pwd is required!!") :showSuccess(pwd) ;

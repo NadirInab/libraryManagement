@@ -14,12 +14,12 @@
             $stmt->bindParam(":fullName", $data["fullName"]) ;
             $stmt->execute() ;
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC) ;
-            if($stmt->rowCount() != 0){
-                $userExist = "User name or Email already exist" ;  
+            if($stmt->rowCount() != 0){ 
+                $userExist = "Exist" ;  
                 return $userExist ;
             }else{
                 AdminFactory::createAdmin($connect, $data) ;
-                return "user Created successfully " ;
+                return "Created" ;
             }  
     }
     
@@ -42,7 +42,7 @@
             $_SESSION["admin_id"] = $result["admin_id"] ;
             header("location: http://localhost/libraryManagement/templates/adminPage.php?&action=books") ;
         }else{
-            return  "User not registered Sign up first" ;
+            return  "notAuser" ;
         }
     }
 
