@@ -1,6 +1,4 @@
-<?php 
-   //require "../includes/function.php" ;
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +11,9 @@
     <title>YouCode Library</title>
 </head>
 <body class="row">
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar  ">
     <div class="container-xxl">
-      <div class="mx-4">
+      <div class="">
       <img id="logo" src="../images/LibraryLogo.png" alt=""> 
         <span class="navbar-brand fw-bold text-muted " href="#">YouCode Library</span>
       </div>

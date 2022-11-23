@@ -12,7 +12,7 @@ class Admin{
         $this->email = $email ;
         $this->image = $image ;
         $this->phone = $phone ;
-        $this->pwd = $pwd ;
+        $this->pwd = md5($pwd) ;
     } 
 } 
 

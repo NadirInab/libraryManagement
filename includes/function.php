@@ -7,7 +7,7 @@ function isConnected(){
     return !empty($_SESSION["admin"]) ;
 }
 
-function isNotSignedIn(){
+function isNotSignedIn(){ 
     if($_SESSION["admin"] == null){
         header("location: http://localhost/libraryManagement/") ;
     }
@@ -21,19 +21,20 @@ function throwArray($data){
 
 function pwdIsConfirmed($pwd1,$pwd2){
     if($pwd1 === $pwd2 ){
-        return true ;
+        return true ; 
     }else{
         return false ;
     }
 }
 
+
 function inValidInputs($data){
-    foreach($data as $datum ){
-        if(strlen($datum) == 0 ){
-            return "inputs must be filled !!" ;
+    foreach($data as $datum => $value ){
+        if(strlen($value) == 0 ){
+            return true;
         }
         else{
-            return true ;
+            return false ;
         }
     }
 }

@@ -77,7 +77,7 @@ nav.navbar{
     margin-top: 5rem;
     padding: 2rem; 
     border: 2px solid lightgray;
-    display: none;
+    /* display: none; */
 }
 #singUp12{
     cursor: pointer;
@@ -132,36 +132,85 @@ nav.navbar{
     background-color:#EFF5F5;
 }
 
+
 aside{
-    /* border: 3px solid red; */
     max-width: 10vh;
 }
 #menu{
     display: none;
 }
+
+
 @media screen and (max-width: 1000px) {
-    aside {
-        border: 2px solid lightsalmon;
-    }
-    #menu{
-        display: block;
-        cursor: pointer;
-    }
     #aside{
+        width: 100%;
         text-align: center;
-        display: none;
+        height: 5vh;
+    }
+    .fa-solid{
+        font-size: larger;
     }
     #side{
-        border-bottom: 2px solid lightgray;
-        margin: auto;
-        display: block;
-        margin: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .fa-solid.fa-right-from-bracket{
+        float: right;
+    }
+    .list strong{
+        display: none;
+    }
+    #profileHolder{
+        display: none;
     }
     nav.navbar{
         display: flex ;
         justify-content: center;
     }
+    main{
+        width: 100vh;
+        display: flex;
+        flex: row;
+        justify-content: space-around;
+    }
+    #profileSection{
+        width: 90%;
+    }
+    #profileSection i{
+        display: none;
+    }
   }
+
+@media screen and (max-width: 724px) {
+    #aside{
+        width: 100%;
+        height: 10vh;
+    }
+    .fa-solid{
+        font-size: larger;
+    }
+    #side{
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    #profileSection{
+        width: 100%;
+    }
+    .mx-5.card.mt-2{
+        margin-top: 20px;
+    }
+
+    .container-xxl{
+        width: 100vw;
+        text-align: center;
+    }
+}
+
+
+
 /* @media screen and (max-width: 900px) {
     aside {
         border: 2px solid lightsalmon;

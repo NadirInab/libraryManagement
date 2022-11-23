@@ -41,18 +41,37 @@ function showSuccess(input){
 function isValidEmail(email){
     const pattern =/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
     return pattern.match(email.value) ;
+
 }   
 
 // =======================
 
+
 signingUpForm.addEventListener("submit", (e)=>{
-    // e.preventDefault() ;
-    (userName.value == "") ? showEroor(userName, "userName is required!!") :showSuccess(userName) ;
-    (phone.value == "") ? showEroor(phone, "phone is required!!") :showSuccess(phone) ;
-    (pwd.value == "") ? showEroor(pwd, "pwd is required!!") :showSuccess(pwd) ;
-    (confirmPwd.value == "") ? showEroor(confirmPwd, "please confirm your password") :showSuccess(confirmPwd) ;
-    (email.value == "") ? showEroor(email, "email field is required") :showSuccess(email) ;
+    if(userName.value == ""){
+        e.preventDefault() ;
+        showEroor(userName, "userName is required!!") ;
+    }
+    if(phone.value == ""){
+        e.preventDefault() ;
+        showEroor(phone, "phone is required!!") ;
+    }
+    if(pwd.value == ""){
+        e.preventDefault() ;
+        showEroor(pwd, "pwd is required!!") ;
+    }
+    if(email.value == "" || !isValidEmail(email.value)){
+        e.preventDefault() ;
+        showEroor(confirmPwd, "please recheck email value ") ;
+    }
+    if(confirmPwd.value == ""){
+        e.preventDefault() ;
+        showEroor(email, "pwd  field is required") ;
+    }
 })
+
+
+
 
 
 signUp.addEventListener("click", ()=>{

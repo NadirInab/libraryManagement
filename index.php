@@ -1,32 +1,32 @@
 <?php 
     include __DIR__."/services/adminService.php" ;
     include "includes/function.php" ;
-    include "templates/navbar.php" ; 
+
+   // include "templates/navbar.php" ; 
 
     $signUpStatus = null ;
     $pwdError = null ;
     $signInStatus = null ;
     $notValid = null ;
+    $showData = "signUp" ;
 
     if(isset($_POST["submit"])){
         (!pwdIsConfirmed($_POST["pwd"], $_POST["confirmedPwd"])) ?$pwdError = "Please enter matching password !!" : null ;  
         $signUpStatus = createAdmin() ;
     }
 
-    // if(isset($_POST["signIn"])){
-    //     if(!inValidInputs($_POST)){
-    //         $signInStatus = signAdminIn() ;
-    //     }else{
-    //         $notValid = inValidInputs($_POST) ;
-    //     }
-    // }
-
     if(isset($_POST["signIn"])){
-        $signInStatus = signAdminIn();
+        $showData = "signIn" ;
+        if( !inValidInputs($_POST)){
+            $signInStatus = signAdminIn() ;
+        }else{
+            $notValid = "invalid data !!" ;
+        }
     }
 
-    
-    // die() ;
+    // if(isset($_POST["signIn"])){
+    //     $signInStatus = signAdminIn();
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,6 +41,16 @@
     <title>YouCode Library</title>
 </head>
 <body class="row">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-xxl">
+        <div class="mx-4">
+        <img id="logo" src="images/LibraryLogo.png" alt=""> 
+            <span class="navbar-brand fw-bold text-muted " href="#">YouCode Library</span>
+        </div>
+    </div>
+    </nav>
+
+    
 
     <?php if($signInStatus == "notAuser" ) :  ?>
         <div class="alert alert-warning text-center m-auto w-50">
@@ -51,7 +61,7 @@
         endif ; 
     ?>
 
-    <section id="signUpForm" class="row col-10 m-5">
+    <section id="signUpForm" class="row col-10 m-5" <?= ($showData == "signIn") ? 'style="display:none ;"': "" ;   ?>> 
         <div  id="form" class="col-xs-12 col-sm-10 col-md-5 col-lg-6 container w-50 border border-2 pb-3">
         <h4 class="text-center ">Sign Up </h4>
 
@@ -71,7 +81,7 @@
                 <small></small>
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address <i class="fa-solid fa-circle-envelope"></i></label>
+                <label for="exampleInputEmail1" class="form-label">Email address </label>
                 <input name="email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 <small></small>
             </div>
@@ -107,11 +117,11 @@
     <img id="img"  class="d-none d-md-inline col-md-4 col-lg-5" src="images/Bibliophile.gif" alt="">
     </section> 
 
-    <div id="signInForm" class="container w-50">
+    <div id="signInForm" class="container w-50"  <?= ($showData == "signUp") ? 'style="display:none ;"': "" ;   ?>>
         <?php if($notValid) : ?>
-            <div class="alert alert-danger"><?= $notValid ;  ?></div>
+            <div class="alert alert-danger"><?= $notValid ;?></div>
         <?php endif ;  ?>
-        <h2 class="text-center ">Sign In</h2>
+        <h2 class="text-center">Sign In</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"] ?>">
             <div class="mb-3 w-75 ">
                 <label for="exampleInputEmail1" class="form-label">Email </label>
@@ -126,6 +136,8 @@
             <span  class="text-muted ">Don't have an account ? <a class="text-primary" id="singUp12" >Sign Up</a> </span>
         </form>
     </div> 
+
+   
     <?php include "templates/footer.php" ?>
 
 

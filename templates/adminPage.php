@@ -20,20 +20,20 @@
         signOut() ;
     }
 ?>
+    
     <?php if(isConnected()) : ?>
-        <aside  class="col-sm-1 col-md-2 col-lg-2">
-            <h4 class="menu"><i class="fa-solid fa-bars"></i></h4>
-            <div id="aside" class="container text-light">
-                <div class="text-center text-dark pt-2">
+        <aside id="aside" class="col-sm-1 col-md-2 col-lg-2">
+            <div  class="container text-light">
+                <div id="profileHolder" class="text-center text-dark pt-2">
                     <img class="rounded-circle w-50 h-50" src="../images/<?=  $_SESSION["profile"] ?>" alt="">
                     <h5 > Welcome <strong class="text-secondary"> <?= $_SESSION["admin"] ?> </strong> </h5>
                 </div>
                 <ul id="side" class="col-1 col-sm-2 col-md-2 list-group w-75">
-                    <li class="list pt-2"> <a  href="adminPage.php?&action=dashboard"> <i class="fa-solid fa-house"></i> Dashboard </a> </li>
-                    <li class="list pt-2"> <a  href="adminPage.php?&action=books"><i class="fa-solid fa-book"></i> Books </a> </li>
-                    <li class="list pt-2"> <a  href="adminPage.php?&action=profile" class=""><i class="fa-solid fa-user"></i> Profile </a></li>
-                    <li class="list pt-2"> <a  href="adminPage.php?&action=addBook"><i class="fa-solid fa-plus"></i> addBook</a></li>
-                    <li class="list pt-2"> <a  href="adminPage.php?&action=signOut"> <i class="fa-solid fa-right-from-bracket"></i> Sign Out</a> </li>
+                    <li class="list pt-2"> <a  href="adminPage.php?&action=dashboard"> <i class="fa-solid fa-house"></i> <strong>Dashboard </strong>  </a> </li>
+                    <li class="list pt-2"> <a  href="adminPage.php?&action=books"><i class="fa-solid fa-book"></i> <strong>Books</strong> </a> </li>
+                    <li class="list pt-2"> <a  href="adminPage.php?&action=profile" class=""><i class="fa-solid fa-user"></i> <strong> Profile </strong></a></li>
+                    <li class="list pt-2"> <a  href="adminPage.php?&action=addBook"><i class="fa-solid fa-plus"></i> <strong>addBook</strong> </a></li>
+                    <li class="list pt-2"> <a  href="adminPage.php?&action=signOut"> <i  class="fa-solid fa-right-from-bracket"></i> <strong>Sign Out</strong></a> </li>
                 </ul>
             </div>
         </aside> 
@@ -47,15 +47,14 @@
 
         <?php
             if(isset($_GET['action']) AND $_GET["action"] === "dashboard"){
-                require "dashboard.php" ;
+                require "dashboard.php" ; 
             }
         ?>
-        
         <?php if(isset($_GET['action']) AND $_GET["action"] === "books") :?>
-            <main class="col- col-sm-3 col-md-5 col-lg-10 pt-5">
+            <main class="col-sm-3 col-md-10 col-lg-10 pt-5">
                 <div class="row d-flex justify-content-around">
                 <?php foreach($booksData as $book) : ?>
-                    <div id="cardData" class="col-sm-1 col-md-3 mx-1 card mt-3" style="width: 18rem;">
+                    <div id="cardData" class="col-sm-2 col-md-3 card mt-3" style="width: 18rem;">
                         <img id="bookImg" src="../images/<?= $book["image"] ?>" class="card-img-top" style="height: 15rem ;" alt="...">
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
@@ -79,16 +78,17 @@
 
         <?php if(isset($_GET['action']) AND $_GET["action"] === "addBook") :?>
         <div class="container w-50 pb-5">
-            <h2>add Book</h2>
+            <h2 class="text-center">add Book</h2>
             <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Title</label>
+                    <label for="exampleInputEmail1" class="form-label fw-bold">Title</label>
                     <input name="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Publish Date</label>
+                    <label for="exampleInputEmail1" class="form-label fw-bold">Publish Date</label>
                     <input name="publish_date" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
+                <label class="fw-bold" for="type">Type</label>
                 <select name="type" class="form-select" aria-label="Default select example">
                     <option selected>Book type</option>
                     <option value="FN">fantasy Novel</option>
@@ -97,7 +97,7 @@
                     <option value="ST">Biographie</option>
                 </select>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Book Image</label>
+                    <label for="exampleInputEmail1" class="form-label fw-bold">Book Image</label>
                     <input name="bookImage" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
                 <button name="addBook" type="submit" class="btn btn-primary mt-2">  Submit</button>
@@ -105,9 +105,8 @@
         </div>  
 
         <?php elseif(isset($_GET['action']) AND $_GET["action"] === "upDateBook") : ?>
-        
             <div class="container w-50">
-            <h2>add Book</h2>
+            <h2 class="text-center">add Book</h2>
             <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]  ?>">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Title</label>

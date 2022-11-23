@@ -30,16 +30,17 @@
 </head>
 <body class="row">
     <div class="container w-50 p-3 mt-5">
-        <h2>upDate  Book</h2>
+        <h2 class="text-center fw-bold">UpDate  Book</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"].'?id='.$book_id?>">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Title</label>
+                <label for="exampleInputEmail1" class="form-label fw-bold">Title</label>
                 <input name="title" type="text" value="<?= $bookData['title'] ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Publish Date</label>
+                <label for="exampleInputEmail1" class="form-label fw-bold">Publish Date</label>
                 <input name="publish_date" value="<?= $bookData['publish_date'] ?>" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
+            <label class="fw-bold" for="select">Type</label>
             <select name="type" class="form-select" aria-label="Default select example">
                 <option  selected>Book type</option>
                 <option <?= ($bookData["type"] == "FN")? "selected" : "" ?> value="FN">FN</option>
@@ -49,7 +50,7 @@
                 <option  <?= ($bookData["type"] == "Mystery")? "selected" : "" ?> value="Mystery">Mystery</option>
             </select>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Book Image</label>
+                <label for="exampleInputEmail1" class="form-label fw-bold">Book Image</label>
                 <!-- <input name="bookImage" type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
                 <input name="bookImage" type="file" class="form-control" value="hiho" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
