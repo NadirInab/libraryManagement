@@ -1,7 +1,7 @@
 <?php 
 
    include "includes/autoloader.php" ;
-   include "templates/navbar.php" ;
+   //include "templates/navbar.php" ;
     $connection = new DbConnection ;
     $connect = $connection->connect() ;
 
@@ -11,7 +11,6 @@
     $stmt->bindParam(':isbn' , $book_id) ;
     $stmt->execute() ;
     $bookData = $stmt->fetch(PDO::FETCH_ASSOC) ;
-
     if(isset($_POST["upDateBook"])){
         $bookData = ["title" => $_POST["title"], "type" => $_POST["type"], "image" => $_POST["bookImage"], "publish_date" => $_POST["publish_date"],"isbn" =>$book_id ] ;
         AdminCrud::upDateBook($bookData,$connect) ;
@@ -29,7 +28,16 @@
     <title>YouCode Library</title>
 </head>
 <body class="row">
-    <div class="container w-50 p-3 mt-5">
+
+<nav class="navbar">
+    <div class="container-xxl">
+      <div class="">
+      <img id="logo" src="images/LibraryLogo.png" alt=""> 
+        <span class="navbar-brand fw-bold text-muted " href="#">YouCode Library</span>
+      </div>
+  </div>
+</nav>
+    <div class="container border border-muted w-50 p-3 mt-5">
         <h2 class="text-center fw-bold">UpDate  Book</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"].'?id='.$book_id?>">
             <div class="mb-3">

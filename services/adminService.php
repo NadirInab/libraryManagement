@@ -5,7 +5,6 @@
 
     function createAdmin(){
             global $connect ;
-            //(!pwdIsConfirmed($data["pwd"], $data["confirmedPwd"])) ? exit()  : null  ; // code doesn't break .
             $data = ["fullName" => $_POST["name"],"email" => $_POST["email"],"profile" => $_POST["profile"], "phone" => $_POST["phone"] ,"pwd" => $_POST["pwd"],"confirmedPwd" => $_POST["confirmedPwd"]] ; // md5
             $query = "SELECT * FROM admin WHERE email = :email and fullName = :fullName " ;
             $stmt = $connect->prepare($query) ;

@@ -2,8 +2,6 @@
     include __DIR__."/services/adminService.php" ;
     include "includes/function.php" ;
 
-   // include "templates/navbar.php" ; 
-
     $signUpStatus = null ;
     $pwdError = null ;
     $signInStatus = null ;
@@ -45,9 +43,6 @@
         </div>
     </div>
     </nav>
-
-
-
     <?php if($signInStatus == "notAuser" ) :  ?>
         <div class="alert alert-warning text-center m-auto w-50">
          <i class="fa-solid fa-face-relieved"></i> <?= "User Not registered !"  ?>
@@ -104,8 +99,6 @@
             <?php if($pwdError) :  ?>
                 <div class="alert alert-danger">  <?= $pwdError ?> <i class="fa-solid fa-face-relieved"></i></div>
             <?php endif ; ?>
-            <!-- <button name="submit" type="submit" class="btn btn-primary">Sign Up</button> -->
-            
             <button name="submit" type="submit" class="btn btn-primary">Sign Up</button>
             <span  class="text-muted ">Already Sign Up ? <a class="text-primary " role="button" id="signInLink" >Sign In</a> </span>
         </form>
@@ -132,8 +125,7 @@
             <span  class="text-muted ">Don't have an account ? <a class="text-primary" id="singUp12" >Sign Up</a> </span>
         </form>
     </div> 
-
-   
+    
     <?php include "templates/footer.php" ?>
 
 
