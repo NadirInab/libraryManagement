@@ -1,7 +1,7 @@
 <?php 
     isNotSignedIn() ;
 ?>
-<div id="profileSection" class="col-7 mx-3 pt-4">
+<div id="profileSection" class="col-7 mx-3 pt-4 mx-5">
         <div class="card p-3" >
         <div class="row ">
             <div class="col-md-6 border border-2 ">

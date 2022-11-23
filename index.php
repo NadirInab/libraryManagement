@@ -23,10 +23,6 @@
             $notValid = "invalid data !!" ;
         }
     }
-
-    // if(isset($_POST["signIn"])){
-    //     $signInStatus = signAdminIn();
-    // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +46,7 @@
     </div>
     </nav>
 
-    
+
 
     <?php if($signInStatus == "notAuser" ) :  ?>
         <div class="alert alert-warning text-center m-auto w-50">

@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="../style/style.css">
     <title>YouCode Library</title>
 </head>
-<body class="row">
-<nav class="navbar  ">
+<body >
+<nav class="navbar">
     <div class="container-xxl">
       <div class="">
       <img id="logo" src="../images/LibraryLogo.png" alt=""> 

@@ -14,9 +14,8 @@ class Admin{
         $this->phone = $phone ;
         $this->pwd = md5($pwd) ;
     } 
+
 } 
-
-
 
 
 

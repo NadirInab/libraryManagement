@@ -9,20 +9,27 @@
 }
 body{
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 body a{
     text-decoration: none;
     color: white;
 }
 nav.navbar{
+    width: 100%;
     background-color: #D6E4E5;
+}
+#mainPage{
+    display: flex;
+    flex-direction: row;
 }
 #cardData{
     max-height: 50%;
 }
 #aside{
     background-color:#CDF0EA;
-    height: 100%;
+    height: 100vh;
+    width: 13vw;
 } 
 
 #logo{
@@ -51,10 +58,7 @@ nav.navbar{
 #signUp12{
     text-decoration: none;
     cursor: pointer;
-    border: 2px solid tomato;
 }
-
-
 .form-control.error input{
     border-color: var(--error-color);
 }
@@ -62,7 +66,6 @@ nav.navbar{
     border: 2px solid;
     border-color: var(--succes-color);
 }
-
 .form-control small{
     color:var(--error-color);
     visibility: hidden;
@@ -71,18 +74,14 @@ nav.navbar{
 .form-control.error small{
     visibility: visible;
 }
-
-
 #signInForm{
     margin-top: 5rem;
     padding: 2rem; 
     border: 2px solid lightgray;
-    /* display: none; */
 }
 #singUp12{
     cursor: pointer;
 }
-
 #form, #signInForm{
     background: rgba( 255, 255, 255, 0.1 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -92,7 +91,6 @@ nav.navbar{
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     opacity: 0.9;
 }
-
 #signInForm:hover, #form:hover{
     transform: translateY(-6px) scale(1) translateZ(0);
     opacity: 1.2;
@@ -131,21 +129,30 @@ nav.navbar{
     font-size: 1.1rem;
     background-color:#EFF5F5;
 }
-
-
-aside{
-    max-width: 10vh;
-}
 #menu{
     display: none;
 }
-
+#mainDiv{
+    width: 90%;
+    max-height: 100vh;
+    overflow-y: scroll;
+}
 
 @media screen and (max-width: 1000px) {
     #aside{
         width: 100%;
         text-align: center;
         height: 5vh;
+    }
+    #mainPage{
+        display: flex;
+        flex-direction: column;
+    }
+    .mx-5.card.mt-2{
+        margin-left: 0 !important;
+    }
+    #mainDiv{
+        width: 100%;
     }
     .fa-solid{
         font-size: larger;
@@ -180,12 +187,23 @@ aside{
     #profileSection i{
         display: none;
     }
-  }
+}
 
 @media screen and (max-width: 724px) {
     #aside{
         width: 100%;
         height: 10vh;
+    }#mainDiv{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .d-flex.dashboard{
+        display: flex ;
+        flex-direction: column;
+        align-items: center;
+    }
+    .mx-5.card.mt-2{
+        margin-left: 0 !important;
     }
     .fa-solid{
         font-size: larger;
@@ -208,20 +226,6 @@ aside{
         text-align: center;
     }
 }
-
-
-
-/* @media screen and (max-width: 900px) {
-    aside {
-        border: 2px solid lightsalmon;
-    }
-    #side li{
-        overflow: hidden;
-    }
-    #aside div img,h5{
-        display: none;
-    }
-  } */
 
 
 
