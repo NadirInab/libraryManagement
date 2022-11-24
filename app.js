@@ -20,12 +20,6 @@ var profile = document.querySelector('[name="profile"]');
 var pwd = document.querySelector('[name="pwd"]');
 var confirmPwd = document.querySelector('[name="confirmedPwd"]');
 
-// =====================
-// menu.addEventListener("click",()=>{
-//     alert("hi") ;
-//     aside.style.display = "block" ;
-// })
-// ============
 
 function showEroor(input, message){
     const formControl = input.parentElement ;
@@ -44,9 +38,6 @@ function isValidEmail(email){
 
 }   
 
-// =======================
-
-
 signingUpForm.addEventListener("submit", (e)=>{
     if(userName.value == ""){
         e.preventDefault() ;
@@ -56,13 +47,13 @@ signingUpForm.addEventListener("submit", (e)=>{
         e.preventDefault() ;
         showEroor(phone, "phone is required!!") ;
     }
+    if(email.value == "" || !isValidEmail(email.value)){
+        e.preventDefault() ;
+        showEroor(email, "please recheck email value ") ;
+    }
     if(pwd.value == ""){
         e.preventDefault() ;
         showEroor(pwd, "pwd is required!!") ;
-    }
-    if(email.value == "" || !isValidEmail(email.value)){
-        e.preventDefault() ;
-        showEroor(confirmPwd, "please recheck email value ") ;
     }
     if(confirmPwd.value == ""){
         e.preventDefault() ;

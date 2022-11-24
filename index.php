@@ -9,8 +9,12 @@
     $showData = "signUp" ;
 
     if(isset($_POST["submit"])){
-        (!pwdIsConfirmed($_POST["pwd"], $_POST["confirmedPwd"])) ?$pwdError = "Please enter matching password !!" : null ;  
-        $signUpStatus = createAdmin() ;
+        if(!pwdIsConfirmed($_POST["pwd"], $_POST["confirmedPwd"])){
+            $pwdError = "Please enter matching password !!" ;
+            header("Refresh:3; url=http://localhost/libraryManagement/index.php") ;
+        }else{
+            $signUpStatus = createAdmin() ;
+        }
     }
 
     if(isset($_POST["signIn"])){
@@ -43,16 +47,7 @@
         </div>
     </div>
     </nav>
-    <?php if($signInStatus == "notAuser" ) :  ?>
-        <div class="alert alert-warning text-center m-auto w-50">
-         <i class="fa-solid fa-face-relieved"></i> <?= "User Not registered !"  ?>
-        </div>
-    <?php 
-        header("Refresh:3; url=http://localhost/libraryManagement/index.php") ;
-        endif ; 
-    ?>
-
-    <section id="signUpForm" class="row col-10 m-5" <?= ($showData == "signIn") ? 'style="display:none ;"': "" ;   ?>> 
+    <section id="signUpForm" class="row col-10 m-3 h-75" <?= ($showData == "signIn") ? 'style="display:none ;"': "" ;   ?>> 
         <div  id="form" class="col-xs-12 col-sm-10 col-md-5 col-lg-6 container w-50 border border-2 pb-3">
         <h4 class="text-center ">Sign Up </h4>
 
@@ -110,6 +105,14 @@
         <?php if($notValid) : ?>
             <div class="alert alert-danger"><?= $notValid ;?></div>
         <?php endif ;  ?>
+        <?php if($signInStatus == "notAuser" ) :  ?>
+        <div class="alert alert-warning text-center m-auto w-50">
+         <i class="fa-solid fa-face-relieved"></i> <?= "User Not registered !"  ?>
+        </div>
+    <?php 
+        header("Refresh:3; url=http://localhost/libraryManagement/index.php") ;
+        endif ; 
+    ?>
         <h2 class="text-center">Sign In</h2>
         <form method="POST" action="<?php echo $_SERVER["PHP_SELF"] ?>">
             <div class="mb-3 w-75 ">
@@ -120,7 +123,6 @@
                 <label for="exampleInputEmail1" class="form-label">Password</label>
                 <input name="pwd" type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
-
             <button name="signIn" type="submit" class="btn btn-primary mt-2">Sign In</button>
             <span  class="text-muted ">Don't have an account ? <a class="text-primary" id="singUp12" >Sign Up</a> </span>
         </form>

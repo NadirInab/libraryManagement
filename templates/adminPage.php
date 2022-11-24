@@ -22,7 +22,6 @@
 ?>
 <div id="mainPage">
     <?php if(isConnected()) : ?>
-        <!-- <aside id="aside" class=" col-md-2 col-lg-2"> -->
         <aside id="aside" class="">
             <div  class="container text-light">
                 <div id="profileHolder" class="text-center text-dark pt-2">
@@ -54,7 +53,7 @@
         </div>
       
         <?php if(isset($_GET['action']) AND $_GET["action"] === "books") :?>
-            <main class="mx-5 col-sm-3 col-md-10 col-lg-10 pt-5">
+            <main class="mx-5 col-sm-3 col-md-10 col-lg-10 pt-2">
                 <div class="row d-flex justify-content-around">
                 <?php foreach($booksData as $book) : ?>
                     <div id="cardData" class="col-sm-2 col-md-3 card mt-3" style="width: 18rem;">
@@ -78,7 +77,6 @@
             </main>
         <?php endif ;  ?>
  
-
         <?php if(isset($_GET['action']) AND $_GET["action"] === "addBook") :?>
         <div class="container w-50 pb-5">
             <h2 class="text-center">add Book</h2>
